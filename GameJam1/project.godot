@@ -16,16 +16,8 @@ _global_script_class_icons={
 [application]
 
 config/name="GameJam1"
+run/main_scene="res://Levels/LevelTemplate/LevelTemplate.tscn"
 config/icon="res://icon.png"
-
-[layer_names]
-
-2d_physics/layer_1="player"
-2d_physics/layer_2="enemy"
-2d_physics/layer_3="civilian"
-2d_physics/layer_4="client"
-2d_physics/layer_5="obstacle"
-2d_physics/layer_6="environment"
 
 [input]
 
@@ -53,6 +45,15 @@ ui_down={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemy"
+2d_physics/layer_3="civilian"
+2d_physics/layer_4="client"
+2d_physics/layer_5="obstacle"
+2d_physics/layer_6="environment"
 
 [rendering]
 
