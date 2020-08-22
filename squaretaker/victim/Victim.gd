@@ -34,7 +34,7 @@ func _on_Objective_body_entered(body: Node) -> void:
 	if (body.is_in_group("victims")):
 		win()
 
-func _on_Area2D_body_entered(body: Node) -> void:
+func _on_Hitbox_body_entered(body: Node) -> void:
 	if (body.is_in_group("hostile")):
 		lives -= 1
 	if (lives == 0):

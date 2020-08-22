@@ -44,6 +44,7 @@ _data = {
 [node name="LevelTemplate" type="Node"]
 script = ExtResource( 7 )
 MobileObstacle = ExtResource( 6 )
+Enemy = ExtResource( 9 )
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_top = 0.00222473
@@ -86,6 +87,7 @@ position = Vector2( 565.972, 1185.34 )
 speed = 200
 patrol_path = NodePath("../VictimPath")
 
-[node name="Enemy" parent="." instance=ExtResource( 9 )]
+[node name="EnemyContainer" type="Node" parent="."]
+
 [connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="body_entered" from="Objective" to="Victim" method="_on_Objective_body_entered"]

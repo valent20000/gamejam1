@@ -1,6 +1,7 @@
 extends Node
 
 export (PackedScene) var MobileObstacle
+export (PackedScene) var Enemy
 
 var levelsize
 
@@ -15,3 +16,7 @@ func _ready():
 		var mo = MobileObstacle.instance()
 		mo.position = Vector2(rand_range(0, levelsize.x), rand_range(0, levelsize.y))
 		$MobileObstacleContainer.add_child(mo)
+	for _i in range(2):
+		var e = Enemy.instance()
+		e.position = Vector2(rand_range(100, levelsize.x - 100), rand_range(100, levelsize.y - 100))
+		$EnemyContainer.add_child(e)

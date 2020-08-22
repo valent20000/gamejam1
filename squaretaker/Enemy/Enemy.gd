@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+export (int) var lives = 1
+
 var alert = false
 var target
 
@@ -26,3 +28,13 @@ func _physics_process(delta):
 			$Gun.orient(target.position)
 			look_at(target.position)
 			rotate(PI/2)
+
+
+func _on_Hitbox_body_entered(body: Node) -> void:
+	if (body.is_in_group("hostile")):
+		lives -= 1
+	if (lives == 0):
+		die()
+
+func die():
+	queue_free()
