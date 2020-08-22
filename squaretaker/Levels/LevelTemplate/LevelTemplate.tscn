@@ -8,7 +8,7 @@
 [ext_resource path="res://MobileObstacle/MobileObstacle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/LevelTemplate/LevelTemplate.gd" type="Script" id=7]
 [ext_resource path="res://Levels/LevelTemplate/BulletSystem.gd" type="Script" id=8]
-[ext_resource path="res://victim/Victim.gd" type="Script" id=9]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -44,6 +44,7 @@ _data = {
 [node name="LevelTemplate" type="Node"]
 script = ExtResource( 7 )
 MobileObstacle = ExtResource( 6 )
+Enemy = ExtResource( 9 )
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_top = 0.00222473
@@ -83,8 +84,9 @@ curve = SubResource( 3 )
 
 [node name="Victim" parent="." instance=ExtResource( 4 )]
 position = Vector2( 565.972, 1185.34 )
-script = ExtResource( 9 )
 speed = 200
 patrol_path = NodePath("../VictimPath")
+
+[node name="EnemyContainer" type="Node" parent="."]
 [connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="body_entered" from="Objective" to="Victim" method="_on_Objective_body_entered"]
