@@ -30,3 +30,6 @@ frames = SubResource( 2 )
 
 [node name="Gun" parent="." instance=ExtResource( 2 )]
 position = Vector2( 16, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
