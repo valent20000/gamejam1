@@ -24,21 +24,6 @@ config/icon="res://icon.png"
 window/size/width=1366
 window/size/height=768
 
-[layer_names]
-
-2d_physics/layer_1="player"
-2d_physics/layer_2="enemy"
-2d_physics/layer_3="civilian"
-2d_physics/layer_4="client"
-2d_physics/layer_5="obstacle"
-2d_physics/layer_6="environment"
-
-[physics]
-
-2d/default_gravity_vector=Vector2( 0, 0 )
-2d/default_linear_damp=3.0
-2d/default_angular_damp=3.0
-
 [input]
 
 ui_left={
@@ -70,6 +55,21 @@ click={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemy"
+2d_physics/layer_3="civilian"
+2d_physics/layer_4="client"
+2d_physics/layer_5="obstacle"
+2d_physics/layer_6="environment"
+
+[physics]
+
+2d/default_gravity_vector=Vector2( 0, 0 )
+2d/default_linear_damp=3.0
+2d/default_angular_damp=3.0
 
 [rendering]
 
