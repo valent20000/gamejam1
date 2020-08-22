@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/victim.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 14.8207, 31.232 )
+extents = Vector2( 14.8207, 15.846 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
