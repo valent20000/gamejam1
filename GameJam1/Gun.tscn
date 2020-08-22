@@ -12,8 +12,11 @@ animations = [ {
 } ]
 
 [node name="Gun" type="Node2D"]
-position = Vector2( 175.994, 103.597 )
+position = Vector2( 40, 48 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -8 )
