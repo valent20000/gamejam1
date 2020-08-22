@@ -30,7 +30,7 @@ func _physics_process(delta):
 	get_input()
 	$Gun.orient(get_global_mouse_position())
 	get_fire()
-	velocity = move_and_slide(velocity)
+	velocity = move_and_slide(velocity,Vector2.ZERO,false, 4, PI/4, false)
 	look_at(get_global_mouse_position())
 	rotate(PI/2)
 

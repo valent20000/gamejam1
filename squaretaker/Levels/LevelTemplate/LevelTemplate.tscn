@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/bloc.png" type="Texture" id=1]
 [ext_resource path="res://assets/wall.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Levels/LevelTemplate/StoryEvents.gd" type="Script" id=10]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Civilians/Civilians.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -61,6 +62,14 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 556.45, 1112.71, 0, 0, 0, 0, 526.911, 3.60531 )
 }
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 30.8203, -31.3995, -30.8203, 31.3995, -88.7025, -125.47, 20.9578, -27.1726, -20.9578, 27.1726, -251.624, -106.443, -14.7937, -1.81151, 14.7937, 1.81151, -233.786, -16.0629, -46.2304, 79.1025, 46.2304, -79.1025, -64.9183, 144.48, -19.725, 12.0767, 19.725, -12.0767, 82.5433, 50.5327, 9.24609, 11.4729, -9.24609, -11.4729, 118.22, -33.901, 8.62968, 42.8723, -8.62968, -42.8723, 86.9274, -83.2086, 41.9156, -7.24603, -41.9156, 7.24603, 36.7228, -119.271, 21.258, 5.74468, -21.258, -5.74468, -33.2807, -127.756, 0, 0, 0, 0, -88.7025, -125.47 )
+}
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 26.0407
 
 [node name="LevelTemplate" type="Node"]
 script = ExtResource( 7 )
@@ -122,7 +131,19 @@ position = Vector2( 673.871, 518.658 )
 [node name="Enemy2" parent="EnemyContainer" instance=ExtResource( 9 )]
 position = Vector2( 232.247, 263.179 )
 
+[node name="CiviliansContainer" type="Node2D" parent="."]
+
+[node name="Civilian" parent="CiviliansContainer" instance=ExtResource( 12 )]
+position = Vector2( 676.795, 459.996 )
+patrol_path = NodePath("Path2D")
+
+[node name="Path2D" type="Path2D" parent="CiviliansContainer/Civilian"]
+position = Vector2( -8.8999, 2.20896 )
+scale = Vector2( 0.96463, 0.984711 )
+curve = SubResource( 5 )
+
 [node name="StoryEvents" type="Node2D" parent="."]
+position = Vector2( 20.1587, -61.1062 )
 script = ExtResource( 10 )
 
 [node name="1" type="Area2D" parent="StoryEvents"]
@@ -139,7 +160,6 @@ __meta__ = {
 [connection signal="shoot" from="Player" to="Foreground/HUD" method="_on_Player_shoot"]
 [connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="body_entered" from="Objective" to="Victim" method="_on_Objective_body_entered"]
-[connection signal="hit" from="Victim" to="Foreground/HUD" method="_on_Victim_hit"]
 [connection signal="death" from="EnemyContainer/Enemy" to="Foreground/HUD" method="_on_Enemy_death"]
 [connection signal="shoot" from="EnemyContainer/Enemy" to="BulletSystem" method="_on_shoot"]
 [connection signal="victim_spotted" from="EnemyContainer/Enemy" to="." method="_on_Enemy_victim_spotted"]
