@@ -38,7 +38,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 567.502, 1156.65, 0, 0, 0, 0, 519.448, 32.7182 )
+"points": PoolVector2Array( 0, 0, 0, 0, 556.45, 1112.71, 0, 0, 0, 0, 526.911, 3.60531 )
 }
 
 [node name="LevelTemplate" type="Node"]
@@ -46,8 +46,9 @@ script = ExtResource( 7 )
 MobileObstacle = ExtResource( 6 )
 
 [node name="Background" type="TextureRect" parent="."]
+anchor_top = 0.00222473
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 1.00222
 margin_right = 449.0
 margin_bottom = 649.0
 texture = ExtResource( 1 )
@@ -66,8 +67,10 @@ tile_data = PoolIntArray( -65536, 1073741824, 0, -65535, 1073741824, 0, -65534, 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 449.98, 1159.03 )
 
-[node name="Objective" parent="." instance=ExtResource( 3 )]
-position = Vector2( 528, 24 )
+[node name="Objective" parent="." groups=[
+"objective",
+] instance=ExtResource( 3 )]
+position = Vector2( 528, 16.5838 )
 
 [node name="MobileObstacleContainer" type="Node" parent="."]
 
@@ -80,5 +83,7 @@ curve = SubResource( 3 )
 [node name="Victim" parent="." instance=ExtResource( 4 )]
 position = Vector2( 565.972, 1185.34 )
 script = ExtResource( 9 )
+speed = 200
 patrol_path = NodePath("../VictimPath")
 [connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
+[connection signal="body_entered" from="Objective" to="Victim" method="_on_Objective_body_entered"]

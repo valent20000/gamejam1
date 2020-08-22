@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var move_speed = 100
+export (int) var speed = 100
 export (NodePath) var patrol_path
 var patrol_points
 var patrol_index = 0
@@ -11,13 +11,21 @@ func _ready():
 		patrol_points = get_node(patrol_path).curve.get_baked_points()
 
 func _physics_process(delta):
-	print(22)
 	if !patrol_path:
-		print(23)
 		return
 	var target = patrol_points[patrol_index]
-	if position.distance_to(target) < 1:
+	if position.distance_to(target) < 10:
 		patrol_index = wrapi(patrol_index + 1, 0, patrol_points.size())
 		target = patrol_points[patrol_index]
-	velocity = (target - position).normalized() * move_speed
+	velocity = (target - position).normalized() * speed
 	velocity = move_and_slide(velocity)
+
+func die():
+	set_physics_process(false)
+
+func win():
+	set_physics_process(false)
+
+func _on_Objective_body_entered(body: Node) -> void:
+	print("victory")
+	win()
