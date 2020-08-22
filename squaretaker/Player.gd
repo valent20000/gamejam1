@@ -21,7 +21,6 @@ func get_input():
 	
 func get_fire():
 	if Input.is_action_pressed("click"):
-		print(66)
 		emit_signal("fire")
 
 func _physics_process(delta):
