@@ -81,8 +81,9 @@ func move_along_path(distance):
 		current_path.remove(0)
 
 func _on_ShootingRange_body_exited(body: Node) -> void:
-	moving = true
-	emit_signal("victim_spotted", id, position, body.position)
+	if (body.is_in_group("good")):
+		moving = true
+		emit_signal("victim_spotted", id, position, body.position)
 
 func _on_ShootingRange_body_entered(body: Node) -> void:
 	moving = false
