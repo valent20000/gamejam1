@@ -2,8 +2,7 @@ extends KinematicBody2D
 
 export (int) var speed = 100
 export (NodePath) var patrol_path
-export (int) var lives = 3
-export (int, 0, 200) var push = 100
+export (int) var lives = 2
 
 signal death
 
@@ -12,16 +11,9 @@ var patrol_index = 0
 var velocity
 
 func _ready():
+	print(patrol_path)
 	if patrol_path:
 		patrol_points = get_node(patrol_path).curve.get_baked_points()
-
-
-func realistic_move():
-	velocity = move_and_slide(velocity, Vector2.ZERO,false, 4, PI/4, false)
-	for index in get_slide_count():
-		var collision = get_slide_collision(index)
-		if collision.collider.is_in_group("bodies"):
-			collision.collider.apply_central_impulse(-collision.normal * push)
 
 func _physics_process(delta):
 	if !patrol_path:
@@ -31,25 +23,14 @@ func _physics_process(delta):
 		patrol_index = wrapi(patrol_index + 1, 0, patrol_points.size())
 		target = patrol_points[patrol_index]
 	velocity = (target - position).normalized() * speed
-	realistic_move()
+	velocity = move_and_slide(velocity)
 
 func die():
-	print("defeat")
+	emit_signal("death")
 	queue_free()
-	set_physics_process(false)
 
-func win():
-	print("victory")
-	queue_free()
-	set_physics_process(false)
-
-func _on_Objective_body_entered(body: Node) -> void:
-	if (body.is_in_group("victims")):
-		win()
- 
 func _on_Hitbox_body_entered(body: Node) -> void:
 	if (body.is_in_group("hostile")):
 		lives -= 1
-		emit_signal("hit")
 	if (lives == 0):
 		die()
