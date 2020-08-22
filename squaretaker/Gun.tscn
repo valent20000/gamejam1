@@ -21,3 +21,11 @@ __meta__ = {
 [node name="GunSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -8 )
 frames = SubResource( 1 )
+
+[node name="Reload" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="TimeBetweenShoot" type="Timer" parent="."]
+wait_time = 0.5
+[connection signal="timeout" from="Reload" to="." method="_on_Reload_timeout"]
+[connection signal="timeout" from="TimeBetweenShoot" to="." method="_on_TimeBetweenShoot_timeout"]
