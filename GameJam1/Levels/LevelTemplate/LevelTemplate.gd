@@ -2,7 +2,7 @@ extends Node
 
 export (PackedScene) var MobileObstacle
 
-var screensize = Vector2(1000, 600)
+var screensize = Vector2(1366, 768)
 
 func _ready():
 	for _i in range(5):
