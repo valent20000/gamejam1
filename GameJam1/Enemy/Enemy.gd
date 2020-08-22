@@ -20,3 +20,8 @@ func _process(delta):
 		emit_signal("fire", target)
 	else:
 		pass
+		
+func _physics_process(delta):
+	if alert:
+			look_at(target.position)
+			rotate(PI/2)
