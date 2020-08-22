@@ -16,14 +16,14 @@ func _ready():
 		var mo = MobileObstacle.instance()
 		mo.position = Vector2(rand_range(0, levelsize.x), rand_range(0, levelsize.y))
 		$MobileObstacleContainer.add_child(mo)
-	for _i in range(2):
-		var e = Enemy.instance()
-		e.position = Vector2(rand_range(100, levelsize.x - 100), rand_range(100, levelsize.y - 100))
-		$EnemyContainer.add_child(e)
-		e.connect("shoot", $BulletSystem, "_on_shoot")
-		e.connect("death", $Foreground/HUD, "_on_Enemy_death")
 	$Foreground/HUD.life = 42
 	$Foreground/HUD.ammo = $Player/Gun.ammo
 	$Foreground/HUD.victim_life = $Victim.lives
 	$Foreground/HUD.number = 3
 	$Foreground/HUD.initialize()
+
+signal path_to_victim(id, path)
+
+func _on_Enemy_victim_spotted(id, startposition, endposition) -> void:
+	var path = $Navigation2D.get_simple_path(startposition, endposition)
+	emit_signal("path_to_victim", id, path)
