@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/bloc.png" type="Texture" id=1]
 [ext_resource path="res://assets/wall.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Levels/LevelTemplate/LevelTemplate.gd" type="Script" id=7]
 [ext_resource path="res://Levels/LevelTemplate/BulletSystem.gd" type="Script" id=8]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Levels/LevelTemplate/StoryEvents.gd" type="Script" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -40,6 +41,9 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 556.45, 1112.71, 0, 0, 0, 0, 526.911, 3.60531 )
 }
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 26.0407
 
 [node name="LevelTemplate" type="Node"]
 script = ExtResource( 7 )
@@ -89,5 +93,21 @@ patrol_path = NodePath("../VictimPath")
 
 [node name="EnemyContainer" type="Node" parent="."]
 
+[node name="Enemy" parent="EnemyContainer" instance=ExtResource( 9 )]
+position = Vector2( 60.169, 710.391 )
+
+[node name="StoryEvents" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="1" type="Area2D" parent="StoryEvents"]
+position = Vector2( 551.079, 936.495 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoryEvents/1"]
+shape = SubResource( 4 )
 [connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="body_entered" from="Objective" to="Victim" method="_on_Objective_body_entered"]
+[connection signal="shoot" from="EnemyContainer/Enemy" to="BulletSystem" method="_on_shoot"]
+[connection signal="body_entered" from="StoryEvents/1" to="StoryEvents" method="_on_1_body_entered"]

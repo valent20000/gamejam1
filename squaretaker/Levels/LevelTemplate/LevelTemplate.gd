@@ -20,3 +20,4 @@ func _ready():
 		var e = Enemy.instance()
 		e.position = Vector2(rand_range(100, levelsize.x - 100), rand_range(100, levelsize.y - 100))
 		$EnemyContainer.add_child(e)
+		e.connect("shoot", get_node("BulletSystem"), "_on_shoot")

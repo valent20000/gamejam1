@@ -5,7 +5,8 @@ export (int) var lives = 1
 var alert = false
 var target
 
-signal fire(target)
+signal fire
+signal shoot(bullet, rotation, position)
 
 #Someone is coming here !
 func _on_FOV_body_entered(body):
@@ -19,7 +20,7 @@ func _on_FOV_body_exited(body):
 	
 func _process(delta):
 	if alert:
-		emit_signal("fire", target)
+		emit_signal("fire")
 	else:
 		pass
 		
@@ -38,3 +39,7 @@ func _on_Hitbox_body_entered(body: Node) -> void:
 
 func die():
 	queue_free()
+
+
+func _on_Gun_shoot(bullet, direction, location):
+	emit_signal("shoot", bullet, direction, location)

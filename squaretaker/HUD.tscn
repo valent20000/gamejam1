@@ -1,0 +1,129 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/icon.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/ammo.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 2 )
+
+[node name="HUD" type="MarginContainer"]
+anchor_right = 1.0
+margin_bottom = 65.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 45.0
+
+[node name="Life" type="HBoxContainer" parent="HBoxContainer"]
+margin_right = 243.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Life"]
+margin_right = 140.0
+margin_bottom = 25.0
+custom_constants/margin_left = 60
+
+[node name="Label" type="Label" parent="HBoxContainer/Life/MarginContainer"]
+margin_left = 60.0
+margin_right = 140.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 1 )
+text = "ptdr/20"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Life"]
+margin_left = 144.0
+margin_right = 152.0
+margin_bottom = 25.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="Ammo" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 247.0
+margin_right = 490.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/Ammo"]
+margin_right = 140.0
+margin_bottom = 25.0
+custom_constants/margin_left = 60
+
+[node name="Label" type="Label" parent="HBoxContainer/Ammo/MarginContainer2"]
+margin_left = 60.0
+margin_right = 140.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 1 )
+text = "ptdr/20"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Ammo"]
+margin_left = 144.0
+margin_right = 152.0
+margin_bottom = 25.0
+texture = ExtResource( 3 )
+
+[node name="VictimLife" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 494.0
+margin_right = 737.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/VictimLife"]
+margin_right = 140.0
+margin_bottom = 25.0
+custom_constants/margin_left = 60
+
+[node name="Label" type="Label" parent="HBoxContainer/VictimLife/MarginContainer3"]
+margin_left = 60.0
+margin_right = 140.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 1 )
+text = "ptdr/20"
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VictimLife"]
+margin_left = 144.0
+margin_right = 152.0
+margin_bottom = 25.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="RemainingKillers" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 741.0
+margin_right = 984.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer/RemainingKillers"]
+margin_right = 95.0
+margin_bottom = 25.0
+custom_constants/margin_left = 60
+
+[node name="Label" type="Label" parent="HBoxContainer/RemainingKillers/MarginContainer4"]
+margin_left = 60.0
+margin_right = 95.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 1 )
+text = "x/n"
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/RemainingKillers"]
+margin_left = 99.0
+margin_right = 107.0
+margin_bottom = 25.0
+texture = ExtResource( 1 )
+stretch_mode = 3

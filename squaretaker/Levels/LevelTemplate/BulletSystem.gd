@@ -5,4 +5,4 @@ func _on_shoot(bullet, direction, location):
 	add_child(b)
 	b.rotation = direction
 	b.position = to_local(location)
-	b.velocity = b.speed*b.velocity.rotated(direction)
+	b.velocity = -b.speed*b.velocity.rotated(direction)
