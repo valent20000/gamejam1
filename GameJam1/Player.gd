@@ -30,5 +30,5 @@ func _physics_process(delta):
 	look_at(get_global_mouse_position())
 	rotate(PI/2)
 
-func _on_Gun_shoot(bullet, rotation, position):
-	emit_signal("shoot", bullet, rotation, position)
+func _on_Gun_shoot(bullet, direction, location):
+	emit_signal("shoot", bullet, direction, location)
