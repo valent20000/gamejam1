@@ -16,7 +16,7 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 328.078, 232.375 )
+position = Vector2( 336, 240 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -29,7 +29,7 @@ shape = SubResource( 1 )
 frames = SubResource( 2 )
 
 [node name="Gun" parent="." instance=ExtResource( 2 )]
-position = Vector2( 16, 0 )
+position = Vector2( 8, -8 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -40,3 +40,5 @@ drag_margin_left = 0.1
 drag_margin_top = 0.1
 drag_margin_right = 0.1
 drag_margin_bottom = 0.1
+
+[connection signal="fire" from="." to="Gun" method="_on_Player_fire"]
