@@ -4,7 +4,7 @@ export (int) var speed = 100
 export (NodePath) var patrol_path
 export (int) var lives = 3
 
-signal hit
+signal death
 
 var patrol_points
 var patrol_index = 0
@@ -25,20 +25,11 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 func die():
-	print("defeat")
-	set_physics_process(false)
-
-func win():
-	print("victory")
-	set_physics_process(false)
-
-func _on_Objective_body_entered(body: Node) -> void:
-	if (body.is_in_group("victims")):
-		win()
+	emit_signal("death")
+	queue_free()
 
 func _on_Hitbox_body_entered(body: Node) -> void:
 	if (body.is_in_group("hostile")):
 		lives -= 1
-		emit_signal("hit")
 	if (lives == 0):
 		die()
