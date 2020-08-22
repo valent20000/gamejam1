@@ -33,7 +33,5 @@ position = Vector2( 8, -8 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-limit_top = 0
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-[connection signal="fire" from="." to="Gun" method="_on_Player_fire"]
+[connection signal="fire" from="." to="Gun" method="_on_fire"]
+[connection signal="shoot" from="Gun" to="." method="_on_Gun_shoot"]
