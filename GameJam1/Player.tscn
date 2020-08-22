@@ -5,7 +5,7 @@
 [ext_resource path="res://Player.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
+extents = Vector2( 13.5794, 29.7012 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -16,7 +16,7 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 336, 240 )
+position = Vector2( 328.078, 232.375 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -29,8 +29,10 @@ shape = SubResource( 1 )
 frames = SubResource( 2 )
 
 [node name="Gun" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8, -8 )
+position = Vector2( 16, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-[connection signal="fire" from="." to="Gun" method="_on_Player_fire"]
+limit_top = 0
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
