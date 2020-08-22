@@ -25,6 +25,7 @@ func get_fire():
 
 func _physics_process(delta):
 	get_input()
+	$Gun.orient(get_global_mouse_position())
 	get_fire()
 	velocity = move_and_slide(velocity)
 	look_at(get_global_mouse_position())

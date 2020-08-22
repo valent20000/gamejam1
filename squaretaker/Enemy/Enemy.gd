@@ -23,5 +23,6 @@ func _process(delta):
 		
 func _physics_process(delta):
 	if alert:
+			$Gun.orient(target.position)
 			look_at(target.position)
 			rotate(PI/2)

@@ -16,10 +16,6 @@ signal shoot(bullet, rotation, position)
 func _ready():
 	size = $GunSprite.frames.get_frame("default", 0).get_size()
 
-func _physics_process(delta):
-	look_at(get_global_mouse_position())
-	rotate(PI/2)
-
 func _on_fire():
 	if can_shoot:
 		$TimeBetweenShoot.start()
@@ -32,6 +28,9 @@ func _on_fire():
 				no_ammo = true
 				$Reload.start()
 
+func orient(position):
+	look_at(position)
+	rotate(PI/2)
 
 func _on_TimeBetweenShoot_timeout():
 	can_shoot = true
