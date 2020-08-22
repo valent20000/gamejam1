@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/bloc.png" type="Texture" id=1]
 [ext_resource path="res://assets/wall.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Levels/LevelTemplate/BulletSystem.gd" type="Script" id=8]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Levels/LevelTemplate/StoryEvents.gd" type="Script" id=10]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -49,6 +50,11 @@ radius = 26.0407
 script = ExtResource( 7 )
 MobileObstacle = ExtResource( 6 )
 Enemy = ExtResource( 9 )
+
+[node name="Foreground" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="HUD" parent="Foreground" instance=ExtResource( 11 )]
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_top = 0.00222473
@@ -107,7 +113,12 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StoryEvents/1"]
 shape = SubResource( 4 )
+[connection signal="hit" from="Player" to="Foreground/HUD" method="_on_Player_hit"]
+[connection signal="reload" from="Player" to="Foreground/HUD" method="_on_Player_reload"]
 [connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
+[connection signal="shoot" from="Player" to="Foreground/HUD" method="_on_Player_shoot"]
 [connection signal="body_entered" from="Objective" to="Victim" method="_on_Objective_body_entered"]
+[connection signal="hit" from="Victim" to="Foreground/HUD" method="_on_Victim_hit"]
+[connection signal="death" from="EnemyContainer/Enemy" to="Foreground/HUD" method="_on_Enemy_death"]
 [connection signal="shoot" from="EnemyContainer/Enemy" to="BulletSystem" method="_on_shoot"]
 [connection signal="body_entered" from="StoryEvents/1" to="StoryEvents" method="_on_1_body_entered"]

@@ -12,6 +12,7 @@ var no_ammo = false
 var can_shoot = true
 
 signal shoot(bullet, rotation, position)
+signal reload
 
 func _ready():
 	size = $GunSprite.frames.get_frame("default", 0).get_size()
@@ -36,5 +37,6 @@ func _on_TimeBetweenShoot_timeout():
 	can_shoot = true
 
 func _on_Reload_timeout():
+	emit_signal("reload")
 	no_ammo = false
 	ammo_left = ammo

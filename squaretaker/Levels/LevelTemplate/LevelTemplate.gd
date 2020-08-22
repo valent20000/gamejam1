@@ -21,3 +21,9 @@ func _ready():
 		e.position = Vector2(rand_range(100, levelsize.x - 100), rand_range(100, levelsize.y - 100))
 		$EnemyContainer.add_child(e)
 		e.connect("shoot", get_node("BulletSystem"), "_on_shoot")
+
+	$Foreground/HUD.life = 42
+	$Foreground/HUD.ammo = $Player/Gun.ammo
+	$Foreground/HUD.victim_life = $Victim.lives
+	$Foreground/HUD.number = 3
+	$Foreground/HUD.initialize()

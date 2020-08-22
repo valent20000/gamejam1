@@ -8,6 +8,8 @@ var target
 signal fire
 signal shoot(bullet, rotation, position)
 
+signal death
+
 #Someone is coming here !
 func _on_FOV_body_entered(body):
 	#if body is the victim
@@ -38,6 +40,7 @@ func _on_Hitbox_body_entered(body: Node) -> void:
 		die()
 
 func die():
+	emit_signal("death")
 	queue_free()
 
 
