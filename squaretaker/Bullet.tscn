@@ -17,6 +17,8 @@ animations = [ {
 [node name="KinematicBody2D" type="KinematicBody2D" groups=[
 "hostile",
 ]]
+scale = Vector2( 2, 2 )
+
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
