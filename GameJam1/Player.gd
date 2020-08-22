@@ -3,6 +3,7 @@ extends KinematicBody2D
 export (int) var speed = 200
 
 signal fire
+signal shoot(bullet, rotation, position)
 
 var velocity = Vector2()
 
@@ -28,5 +29,6 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 	look_at(get_global_mouse_position())
 	rotate(PI/2)
-	
-	
+
+func _on_Gun_shoot(bullet, rotation, position):
+	emit_signal("shoot", bullet, rotation, position)
