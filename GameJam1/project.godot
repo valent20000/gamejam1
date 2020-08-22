@@ -16,8 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="GameJam1"
-run/main_scene="res://Levels/LevelTemplate/LevelTemplate.tscn"
+run/main_scene="res://TitleScreen.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1366
+window/size/height=768
 
 [input]
 
@@ -46,16 +51,6 @@ ui_down={
  ]
 }
 
-[layer_names]
-
-2d_physics/layer_1="player"
-2d_physics/layer_2="enemy"
-2d_physics/layer_3="civilian"
-2d_physics/layer_4="client"
-2d_physics/layer_5="obstacle"
-2d_physics/layer_6="environment"
-
 [rendering]
 
-quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
