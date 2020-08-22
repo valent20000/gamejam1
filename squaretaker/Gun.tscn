@@ -24,8 +24,10 @@ frames = SubResource( 1 )
 
 [node name="Reload" type="Timer" parent="."]
 wait_time = 3.0
+one_shot = true
 
 [node name="TimeBetweenShoot" type="Timer" parent="."]
 wait_time = 0.5
+one_shot = true
 [connection signal="timeout" from="Reload" to="." method="_on_Reload_timeout"]
 [connection signal="timeout" from="TimeBetweenShoot" to="." method="_on_TimeBetweenShoot_timeout"]

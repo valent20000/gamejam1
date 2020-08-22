@@ -16,6 +16,11 @@ func _ready():
 		var mo = MobileObstacle.instance()
 		mo.position = Vector2(rand_range(0, levelsize.x), rand_range(0, levelsize.y))
 		$MobileObstacleContainer.add_child(mo)
+	$Foreground/HUD.life = 42
+	$Foreground/HUD.ammo = $Player/Gun.ammo
+	$Foreground/HUD.victim_life = $Victim.lives
+	$Foreground/HUD.number = 3
+	$Foreground/HUD.initialize()
 
 signal path_to_victim(id, path)
 

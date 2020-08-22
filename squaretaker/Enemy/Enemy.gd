@@ -10,13 +10,17 @@ var current_path
 
 #used for signals
 var id
-signal fire(target)
 signal victim_spotted(id, startposition, endposition)
 
 func _ready():
 	randomize()
 	id = rand_range(1, 100000)
 	print(id)
+
+signal fire
+signal shoot(bullet, rotation, position)
+
+signal death
 
 #Someone is coming here !
 func _on_FOV_body_entered(body):
@@ -31,7 +35,7 @@ func _on_FOV_body_entered(body):
 	
 func _process(delta):
 	if alert:
-		emit_signal("fire", target)
+		emit_signal("fire")
 	if moving:
 		emit_signal("victim_spotted", id, position, target.position)
 		var move_distance = speed * delta
@@ -50,6 +54,7 @@ func _on_Hitbox_body_entered(body: Node) -> void:
 		die()
 
 func die():
+	emit_signal("death")
 	queue_free()
 
 func _on_LevelTemplate_path_to_victim(id, path) -> void:
@@ -81,3 +86,6 @@ func _on_ShootingRange_body_exited(body: Node) -> void:
 
 func _on_ShootingRange_body_entered(body: Node) -> void:
 	moving = false
+
+func _on_Gun_shoot(bullet, direction, location):
+	emit_signal("shoot", bullet, direction, location)

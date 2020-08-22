@@ -4,6 +4,9 @@ export (int) var speed = 200
 
 signal fire
 signal shoot(bullet, rotation, position)
+signal reload
+
+signal hit
 
 var velocity = Vector2()
 
@@ -33,3 +36,7 @@ func _physics_process(delta):
 
 func _on_Gun_shoot(bullet, direction, location):
 	emit_signal("shoot", bullet, direction, location)
+
+
+func _on_Gun_reload():
+	emit_signal("reload")

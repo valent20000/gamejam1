@@ -12,6 +12,7 @@ var no_ammo = false
 var can_shoot = true
 
 signal shoot(bullet, rotation, position)
+signal reload
 
 func _ready():
 	size = $GunSprite.frames.get_frame("default", 0).get_size()
@@ -20,8 +21,8 @@ func _on_fire():
 	if can_shoot:
 		$TimeBetweenShoot.start()
 		can_shoot = false
-		if ammo_left:
-			var vec = Vector2(0, size.y).rotated(get_global_rotation())
+		if not no_ammo:
+			var vec = 1.1*Vector2(0, size.y).rotated(get_global_rotation())
 			emit_signal("shoot", Bullet, get_global_rotation(), get_global_position() - vec)
 			ammo_left-=1
 			if ammo_left <= 0:
@@ -36,5 +37,6 @@ func _on_TimeBetweenShoot_timeout():
 	can_shoot = true
 
 func _on_Reload_timeout():
+	emit_signal("reload")
 	no_ammo = false
 	ammo_left = ammo
