@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 export (int) var speed = 100
 export (NodePath) var patrol_path
+export (int) var lives = 3
+
 var patrol_points
 var patrol_index = 0
 var velocity
@@ -21,11 +23,19 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 func die():
+	print("defeat")
 	set_physics_process(false)
 
 func win():
+	print("victory")
 	set_physics_process(false)
 
 func _on_Objective_body_entered(body: Node) -> void:
-	print("victory")
-	win()
+	if (body.is_in_group("victims")):
+		win()
+
+func _on_Area2D_body_entered(body: Node) -> void:
+	if (body.is_in_group("hostile")):
+		lives -= 1
+	if (lives == 0):
+		die()
