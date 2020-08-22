@@ -5,7 +5,7 @@
 [ext_resource path="res://Player.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
+extents = Vector2( 13.5794, 14.938 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -33,5 +33,17 @@ position = Vector2( 8, -8 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+limit_top = 0
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
+
 [connection signal="fire" from="." to="Gun" method="_on_fire"]
 [connection signal="shoot" from="Gun" to="." method="_on_Gun_shoot"]
+
+
+
+

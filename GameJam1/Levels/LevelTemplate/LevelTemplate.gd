@@ -5,6 +5,7 @@ export (PackedScene) var MobileObstacle
 var levelsize
 
 func _ready():
+	randomize()
 	levelsize = $Background.rect_size
 	$Player/Camera2D.limit_left = 0
 	$Player/Camera2D.limit_right = levelsize.x
