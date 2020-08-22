@@ -3,6 +3,7 @@ extends KinematicBody2D
 export (int) var speed = 100
 export (NodePath) var patrol_path
 export (int) var lives = 3
+export (int, 0, 200) var push = 100
 
 signal death
 
@@ -14,6 +15,14 @@ func _ready():
 	if patrol_path:
 		patrol_points = get_node(patrol_path).curve.get_baked_points()
 
+
+func realistic_move():
+	velocity = move_and_slide(velocity, Vector2.ZERO,false, 4, PI/4, false)
+	for index in get_slide_count():
+		var collision = get_slide_collision(index)
+		if collision.collider.is_in_group("bodies"):
+			collision.collider.apply_central_impulse(-collision.normal * push)
+
 func _physics_process(delta):
 	if !patrol_path:
 		return
@@ -22,7 +31,7 @@ func _physics_process(delta):
 		patrol_index = wrapi(patrol_index + 1, 0, patrol_points.size())
 		target = patrol_points[patrol_index]
 	velocity = (target - position).normalized() * speed
-	velocity = move_and_slide(velocity)
+	realistic_move()
 
 func die():
 	emit_signal("death")

@@ -5,9 +5,12 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.0383, 16.1 )
 
-[node name="MobileObstacle" type="RigidBody2D"]
+[node name="MobileObstacle" type="RigidBody2D" groups=[
+"bodies",
+]]
 collision_layer = 16
 collision_mask = 63
+continuous_cd = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
