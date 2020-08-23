@@ -26,7 +26,7 @@ signal death
 func _on_FOV_body_entered(body):
 	if (body.is_in_group("good")):
 		# if he is already shooting the victim, no point in changing
-		if (alert && target.is_in_group("victims")):
+		if (alert && target != null && target.is_in_group("victims")):
 			return
 		target = body
 		alert = true
