@@ -1,11 +1,15 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/icon.png" type="Texture" id=1]
+[ext_resource path="res://assets/icons/icon.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/ammo.png" type="Texture" id=3]
+[ext_resource path="res://assets/icons/ammo.png" type="Texture" id=3]
 [ext_resource path="res://HUD.gd" type="Script" id=4]
-[ext_resource path="res://assets/icon-victim.png" type="Texture" id=5]
-[ext_resource path="res://assets/skull.png" type="Texture" id=6]
+[ext_resource path="res://assets/icons/icon-victim.png" type="Texture" id=5]
+[ext_resource path="res://assets/icons/skull.png" type="Texture" id=6]
+
+
+
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 20

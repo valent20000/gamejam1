@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/killer.png" type="Texture" id=1]
+[ext_resource path="res://assets/new/killer.png" type="Texture" id=1]
 [ext_resource path="res://Enemy/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://Guns/EnemyGun.tscn" type="PackedScene" id=3]
 
