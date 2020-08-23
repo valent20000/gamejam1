@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Player_SwordSwing.wav-a80eeec1ef6e16956abc09e78d5b89bf.sample"
+
+[deps]
+
+source_file="res://assets/ost/SFX/Player/Player_SwordSwing.wav"
+dest_files=[ "res://.import/Player_SwordSwing.wav-a80eeec1ef6e16956abc09e78d5b89bf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

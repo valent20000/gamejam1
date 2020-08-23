@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Enemy_Laser_Shot_3.wav-6c0ab2ba93327d7f2f1ea5f0335bcb53.sample"
+
+[deps]
+
+source_file="res://assets/ost/SFX/Enemy/Enemy_Laser_Shot_3.wav"
+dest_files=[ "res://.import/Enemy_Laser_Shot_3.wav-6c0ab2ba93327d7f2f1ea5f0335bcb53.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

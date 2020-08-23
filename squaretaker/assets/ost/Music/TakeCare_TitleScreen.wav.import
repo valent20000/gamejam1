@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/TakeCare_TitleScreen.wav-9466e9321dcee2dccf739b3f57346333.sample"
+
+[deps]
+
+source_file="res://assets/ost/Music/TakeCare_TitleScreen.wav"
+dest_files=[ "res://.import/TakeCare_TitleScreen.wav-9466e9321dcee2dccf739b3f57346333.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
