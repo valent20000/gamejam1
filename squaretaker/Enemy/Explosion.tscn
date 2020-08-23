@@ -9,6 +9,7 @@ radius = 32.0
 [node name="Area2D" type="Area2D" groups=[
 "hostile",
 ]]
+z_index = 2
 script = ExtResource( 1 )
 
 [node name="Body" type="CollisionShape2D" parent="."]

@@ -19,6 +19,7 @@ animations = [ {
 "good",
 "victims",
 ]]
+z_index = 1
 collision_layer = 8
 collision_mask = 63
 script = ExtResource( 2 )

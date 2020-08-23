@@ -7,7 +7,7 @@ var disabled = false
 signal explosion(position, radius)
 
 func _on_Landmine_body_entered(body):
-	if not disabled:
+	if body.is_in_group("alive") and not disabled:
 		emit_signal("explosion", get_global_position(), radius)
 		die()
 	

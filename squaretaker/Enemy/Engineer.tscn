@@ -18,6 +18,8 @@ extents = Vector2( 16, 16 )
 "alive",
 "bodies",
 ]]
+z_index = 1
+mass = 10.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true

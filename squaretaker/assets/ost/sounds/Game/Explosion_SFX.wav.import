@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Explosion_SFX.wav-664526870f3bbac4d29950997a86f81f.sample"
+
+[deps]
+
+source_file="res://assets/ost/sounds/Game/Explosion_SFX.wav"
+dest_files=[ "res://.import/Explosion_SFX.wav-664526870f3bbac4d29950997a86f81f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/killer.png" type="Texture" id=1]
 [ext_resource path="res://Enemy/Enemy.gd" type="Script" id=2]
-[ext_resource path="res://Gun.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Guns/EnemyGun.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -25,13 +25,10 @@ radius = 179.933
 "alive",
 "evil",
 ]]
-position = Vector2( 560, 216 )
+z_index = 1
 collision_layer = 2
 collision_mask = 63
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -53,10 +50,14 @@ collision_mask = 9
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShootingRange"]
 shape = SubResource( 4 )
 
-[node name="Gun" parent="." instance=ExtResource( 4 )]
-position = Vector2( 9, -8 )
+[node name="Gun" parent="." instance=ExtResource( 3 )]
+position = Vector2( 16, -16 )
+
+[node name="Lag" type="Timer" parent="."]
+wait_time = 0.5
 [connection signal="fire" from="." to="Gun" method="_on_fire"]
 [connection signal="body_entered" from="FOV" to="." method="_on_FOV_body_entered"]
 [connection signal="body_entered" from="ShootingRange" to="." method="_on_ShootingRange_body_entered"]
 [connection signal="body_exited" from="ShootingRange" to="." method="_on_ShootingRange_body_exited"]
 [connection signal="shoot" from="Gun" to="." method="_on_Gun_shoot"]
+[connection signal="timeout" from="Lag" to="." method="_on_Lag_timeout"]

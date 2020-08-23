@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Guns/Bullets/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://assets/bullet.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 0.5, 0.75 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="KinematicBody2D" type="KinematicBody2D" groups=[
+"hostile",
+]]
+scale = Vector2( 4, 4 )
+z_index = 2
+z_as_relative = false
+script = ExtResource( 1 )
+speed = 35
+life = 1
+push = 1200
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Bullet" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -0.259756 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 2 )
