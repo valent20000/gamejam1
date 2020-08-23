@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-export (int) var lives = 1
+export (int) var lives = 2
 export (int) var speed = 160
+export (int) var damage = 2
 
-var fire_allowed = false
 var alert = false
 var moving = false
 var target
@@ -18,8 +18,7 @@ func _ready():
 	id = rand_range(1, 100000)
 	print(id)
 
-signal fire
-signal shoot(bullet, rotation, position)
+signal swing
 
 signal death
 
@@ -29,6 +28,7 @@ func _on_FOV_body_entered(body):
 		# if he is already shooting the victim, no point in changing
 		if (alert && target != null && target.is_in_group("victims")):
 			return
+		print("victim spotted")
 		target = body
 		alert = true
 		if (target.is_in_group("victims")):
@@ -37,8 +37,8 @@ func _on_FOV_body_entered(body):
 func _process(delta):
 	if (target == null):
 		return
-	if alert and fire_allowed:
-		emit_signal("fire")
+	if alert:
+		emit_signal("swing")
 	if moving:
 		emit_signal("victim_spotted", id, position, target.position)
 		var move_distance = speed * delta
@@ -47,22 +47,22 @@ func _process(delta):
 func _physics_process(delta):
 	if (target == null):
 		return
-	if alert:
-			$Gun.orient(target.position)
-			look_at(target.position)
-			rotate(PI/2)
 
-func body_entered(body):
+func _on_Hitbox_body_entered(body: Node) -> void:
+	print("Brute hit")
 	if (body.is_in_group("hostile")):
 		lives -= 1
 	if (lives <= 0):
 		die()
-		
+
 func die():
 	emit_signal("death")
 	queue_free()
 
 func _on_LevelTemplate_path_to_victim(id, path) -> void:
+	print("victim spotted?")
+	print(id)
+	print(self.id)
 	if (id == self.id):
 		moving = true
 		current_path = path
@@ -85,20 +85,8 @@ func move_along_path(distance):
 		start_point = current_path[0]
 		current_path.remove(0)
 
-func _on_ShootingRange_body_exited(body: Node) -> void:
+
+func _on_Hurtbox_body_entered(body: Node) -> void:
 	if (body.is_in_group("good")):
-		moving = true
-		emit_signal("victim_spotted", id, position, body.position)
-		fire_allowed = false
-		
-func _on_ShootingRange_body_entered(body: Node) -> void:
-	if (body.is_in_group("good")):
+		body.lives -= 2
 		moving = false
-		$Lag.start()
-
-func _on_Gun_shoot(bullet, direction, location):
-	emit_signal("shoot", bullet, direction, location)
-
-
-func _on_Lag_timeout():
-	fire_allowed = true
