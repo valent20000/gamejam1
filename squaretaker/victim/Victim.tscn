@@ -18,6 +18,7 @@ animations = [ {
 extents = Vector2( 16.1693, 16.2008 )
 
 [node name="Victim" type="KinematicBody2D" groups=[
+"good",
 "victims",
 ]]
 collision_layer = 8

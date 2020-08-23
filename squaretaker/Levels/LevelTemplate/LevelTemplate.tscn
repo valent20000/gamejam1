@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/bloc.png" type="Texture" id=1]
 [ext_resource path="res://assets/wall.png" type="Texture" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://Levels/LevelTemplate/StoryEvents.gd" type="Script" id=10]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Civilians/Civilians.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Civilians/Civilians.gd" type="Script" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -138,7 +137,6 @@ curve = SubResource( 5 )
 
 [node name="Civilian" parent="CiviliansContainer" instance=ExtResource( 12 )]
 position = Vector2( 677.795, 458.996 )
-script = ExtResource( 13 )
 patrol_path = NodePath("../CivilianPath")
 
 [node name="StoryEvents" type="Node2D" parent="."]
@@ -156,11 +154,14 @@ __meta__ = {
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy2" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="hit" from="Player" to="Foreground/HUD" method="_on_Player_hit"]
 [connection signal="reload" from="Player" to="Foreground/HUD" method="_on_Player_reload"]
-[connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="shoot" from="Player" to="Foreground/HUD" method="_on_Player_shoot"]
+[connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="body_entered" from="Objective" to="Victim" method="_on_Objective_body_entered"]
+[connection signal="hit" from="Victim" to="Foreground/HUD" method="_on_Victim_hit"]
 [connection signal="death" from="EnemyContainer/Enemy" to="Foreground/HUD" method="_on_Enemy_death"]
 [connection signal="shoot" from="EnemyContainer/Enemy" to="BulletSystem" method="_on_shoot"]
 [connection signal="victim_spotted" from="EnemyContainer/Enemy" to="." method="_on_Enemy_victim_spotted"]
+[connection signal="shoot" from="EnemyContainer/Enemy2" to="BulletSystem" method="_on_shoot"]
+[connection signal="shoot" from="EnemyContainer/Enemy2" to="BulletSystem" method="_on_Enemy_shoot"]
 [connection signal="victim_spotted" from="EnemyContainer/Enemy2" to="." method="_on_Enemy_victim_spotted"]
 [connection signal="body_entered" from="StoryEvents/1" to="StoryEvents" method="_on_1_body_entered"]

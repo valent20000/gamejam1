@@ -2,10 +2,11 @@ extends KinematicBody2D
 
 export (int) var speed = 100
 export (NodePath) var patrol_path
-export (int) var lives = 3
+export (int) var lives = 1
 export (int, 0, 200) var push = 100
 
 signal death
+signal hit
 
 var patrol_points
 var patrol_index = 0
@@ -14,7 +15,6 @@ var velocity
 func _ready():
 	if patrol_path:
 		patrol_points = get_node(patrol_path).curve.get_baked_points()
-
 
 func realistic_move():
 	velocity = move_and_slide(velocity, Vector2.ZERO,false, 4, PI/4, false)
@@ -51,5 +51,5 @@ func _on_Hitbox_body_entered(body: Node) -> void:
 	if (body.is_in_group("hostile")):
 		lives -= 1
 		emit_signal("hit")
-	if (lives == 0):
+	if (lives <= 0):
 		die()

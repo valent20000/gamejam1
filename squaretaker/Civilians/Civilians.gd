@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export (int) var speed = 100
 export (NodePath) var patrol_path
-export (int) var lives = 2
+export (int) var lives = 1
 
 signal death
 
@@ -30,6 +30,7 @@ func die():
 	queue_free()
 
 func _on_Hitbox_body_entered(body: Node) -> void:
+	print(lives)
 	if (body.is_in_group("hostile")):
 		lives -= 1
 	if (lives == 0):
