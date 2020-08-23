@@ -30,7 +30,6 @@ func die():
 	queue_free()
 
 func _on_Hitbox_body_entered(body: Node) -> void:
-	print(lives)
 	if (body.is_in_group("hostile")):
 		lives -= 1
 	if (lives == 0):
