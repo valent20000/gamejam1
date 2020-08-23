@@ -2,10 +2,11 @@ extends KinematicBody2D
 
 export (int) var speed = 100
 export (NodePath) var patrol_path
-export (int) var lives = 3
+export (int) var lives = 1
 export (int, 0, 200) var push = 100
 
 signal death
+signal hit
 
 var patrol_points
 var patrol_index = 0
@@ -49,5 +50,6 @@ func _on_Objective_body_entered(body: Node) -> void:
 func body_entered(body):
 	if (body.is_in_group("hostile")):
 		lives -= 1
+		emit_signal("hit")
 	if (lives <= 0):
 		die()

@@ -16,6 +16,7 @@ animations = [ {
 
 [node name="Victim" type="KinematicBody2D" groups=[
 "alive",
+"good",
 "victims",
 ]]
 collision_layer = 8

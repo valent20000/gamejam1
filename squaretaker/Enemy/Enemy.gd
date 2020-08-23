@@ -34,6 +34,8 @@ func _on_FOV_body_entered(body):
 			emit_signal("victim_spotted", id, position, target.position)
 	
 func _process(delta):
+	if (target == null):
+		return
 	if alert:
 		emit_signal("fire")
 	if moving:
@@ -42,6 +44,8 @@ func _process(delta):
 		move_along_path(move_distance)
 		
 func _physics_process(delta):
+	if (target == null):
+		return
 	if alert:
 			$Gun.orient(target.position)
 			look_at(target.position)
@@ -74,7 +78,7 @@ func move_along_path(distance):
 			break
 		elif distance_to_next <= 10:
 			position = current_path[0]
-			moving = false
+#			moving = false
 			break
 		distance -= distance_to_next
 		start_point = current_path[0]
@@ -86,7 +90,8 @@ func _on_ShootingRange_body_exited(body: Node) -> void:
 		emit_signal("victim_spotted", id, position, body.position)
 
 func _on_ShootingRange_body_entered(body: Node) -> void:
-	moving = false
+	if (body.is_in_group("good")):
+		moving = false
 
 func _on_Gun_shoot(bullet, direction, location):
 	emit_signal("shoot", bullet, direction, location)

@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export (int) var speed = 100
 export (NodePath) var patrol_path
-export (int) var lives = 2
+export (int) var lives = 1
 
 signal death
 
@@ -28,6 +28,7 @@ func _physics_process(delta):
 func die():
 	emit_signal("death")
 	queue_free()
+
 
 func body_entered(body):
 	if (body.is_in_group("hostile")):
