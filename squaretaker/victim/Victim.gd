@@ -15,7 +15,6 @@ func _ready():
 	if patrol_path:
 		patrol_points = get_node(patrol_path).curve.get_baked_points()
 
-
 func realistic_move():
 	velocity = move_and_slide(velocity, Vector2.ZERO,false, 4, PI/4, false)
 	for index in get_slide_count():
@@ -47,9 +46,8 @@ func _on_Objective_body_entered(body: Node) -> void:
 	if (body.is_in_group("victims")):
 		win()
  
-func _on_Hitbox_body_entered(body: Node) -> void:
+func body_entered(body):
 	if (body.is_in_group("hostile")):
 		lives -= 1
-		emit_signal("hit")
-	if (lives == 0):
+	if (lives <= 0):
 		die()

@@ -16,9 +16,11 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D" groups=[
+"alive",
 "good",
 ]]
 position = Vector2( 336, 240 )
+z_index = 1
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true

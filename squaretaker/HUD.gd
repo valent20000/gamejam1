@@ -54,7 +54,6 @@ func _on_Player_shoot(bullet, rotation, position):
 	current_ammo-=1
 	set_ammo()
 	
-
 func _on_Player_reload():
 	current_ammo = ammo
 	set_ammo()

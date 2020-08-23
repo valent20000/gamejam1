@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/bloc.png" type="Texture" id=1]
 [ext_resource path="res://assets/wall.png" type="Texture" id=2]
@@ -13,6 +13,11 @@
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Civilians/Civilians.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Civilians/Civilians.gd" type="Script" id=13]
+[ext_resource path="res://Enemy/Landmine.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Enemy/Engineer.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Levels/LevelTemplate/EngineerContainer.gd" type="Script" id=16]
+[ext_resource path="res://Enemy/Explosion.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Levels/LevelTemplate/Group1.gd" type="Script" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -120,8 +125,9 @@ curve = SubResource( 4 )
 
 [node name="Victim" parent="." instance=ExtResource( 4 )]
 position = Vector2( 565.972, 1185.34 )
-speed = 150
+speed = 20
 patrol_path = NodePath("../VictimPath")
+lives = 1
 
 [node name="EnemyContainer" type="Node" parent="."]
 
@@ -130,6 +136,19 @@ position = Vector2( 604.817, 465.732 )
 
 [node name="Enemy2" parent="EnemyContainer" instance=ExtResource( 9 )]
 position = Vector2( 232.247, 263.179 )
+
+[node name="EngineerContainer" type="Node2D" parent="EnemyContainer"]
+script = ExtResource( 16 )
+Explosion = ExtResource( 17 )
+
+[node name="Group1" type="Node2D" parent="EnemyContainer/EngineerContainer"]
+script = ExtResource( 18 )
+
+[node name="Engineer1" parent="EnemyContainer/EngineerContainer/Group1" instance=ExtResource( 15 )]
+position = Vector2( 343.307, 695.28 )
+
+[node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group1" instance=ExtResource( 14 )]
+position = Vector2( 546.971, 785.009 )
 
 [node name="CiviliansContainer" type="Node2D" parent="."]
 
@@ -140,6 +159,7 @@ curve = SubResource( 5 )
 position = Vector2( 677.795, 458.996 )
 script = ExtResource( 13 )
 patrol_path = NodePath("../CivilianPath")
+lives = 3
 
 [node name="StoryEvents" type="Node2D" parent="."]
 position = Vector2( 20.1587, -61.1062 )
@@ -152,15 +172,19 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StoryEvents/1"]
-[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy2" method="_on_LevelTemplate_path_to_victim"]
+[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="hit" from="Player" to="Foreground/HUD" method="_on_Player_hit"]
 [connection signal="reload" from="Player" to="Foreground/HUD" method="_on_Player_reload"]
-[connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="shoot" from="Player" to="Foreground/HUD" method="_on_Player_shoot"]
+[connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="body_entered" from="Objective" to="Victim" method="_on_Objective_body_entered"]
 [connection signal="death" from="EnemyContainer/Enemy" to="Foreground/HUD" method="_on_Enemy_death"]
 [connection signal="shoot" from="EnemyContainer/Enemy" to="BulletSystem" method="_on_shoot"]
 [connection signal="victim_spotted" from="EnemyContainer/Enemy" to="." method="_on_Enemy_victim_spotted"]
+[connection signal="shoot" from="EnemyContainer/Enemy2" to="BulletSystem" method="_on_shoot"]
 [connection signal="victim_spotted" from="EnemyContainer/Enemy2" to="." method="_on_Enemy_victim_spotted"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group1/Engineer1" to="EnemyContainer/EngineerContainer/Group1/Landmine1" method="_on_owner_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group1/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="explosion" from="EnemyContainer/EngineerContainer/Group1/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
 [connection signal="body_entered" from="StoryEvents/1" to="StoryEvents" method="_on_1_body_entered"]

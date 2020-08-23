@@ -11,9 +11,12 @@ func realistic_move(delta):
 	if collision_info:
 		if collision_info.collider.is_in_group("bodies"):
 			collision_info.collider.apply_central_impulse(-collision_info.normal*push)
+		if collision_info.collider.is_in_group("alive"):
+			collision_info.collider.body_entered(self)
 		velocity = velocity.bounce(collision_info.normal)
 		return true
 	return false
+	
 func _physics_process(delta):
 	var event = realistic_move(delta)
 	if event:
