@@ -3,6 +3,7 @@ extends KinematicBody2D
 export (int) var lives = 1
 export (int) var speed = 160
 
+var fire_allowed = false
 var alert = false
 var moving = false
 var target
@@ -36,7 +37,7 @@ func _on_FOV_body_entered(body):
 func _process(delta):
 	if (target == null):
 		return
-	if alert:
+	if alert and fire_allowed:
 		emit_signal("fire")
 	if moving:
 		emit_signal("victim_spotted", id, position, target.position)
@@ -51,12 +52,12 @@ func _physics_process(delta):
 			look_at(target.position)
 			rotate(PI/2)
 
-func _on_Hitbox_body_entered(body: Node) -> void:
+func body_entered(body):
 	if (body.is_in_group("hostile")):
 		lives -= 1
 	if (lives <= 0):
 		die()
-
+		
 func die():
 	emit_signal("death")
 	queue_free()
@@ -88,10 +89,16 @@ func _on_ShootingRange_body_exited(body: Node) -> void:
 	if (body.is_in_group("good")):
 		moving = true
 		emit_signal("victim_spotted", id, position, body.position)
-
+		fire_allowed = false
+		
 func _on_ShootingRange_body_entered(body: Node) -> void:
 	if (body.is_in_group("good")):
 		moving = false
+		$Lag.start()
 
 func _on_Gun_shoot(bullet, direction, location):
 	emit_signal("shoot", bullet, direction, location)
+
+
+func _on_Lag_timeout():
+	fire_allowed = true

@@ -47,7 +47,7 @@ func _on_Objective_body_entered(body: Node) -> void:
 	if (body.is_in_group("victims")):
 		win()
  
-func _on_Hitbox_body_entered(body: Node) -> void:
+func body_entered(body):
 	if (body.is_in_group("hostile")):
 		lives -= 1
 		emit_signal("hit")

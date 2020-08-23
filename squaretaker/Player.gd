@@ -3,6 +3,8 @@ extends KinematicBody2D
 export (int) var speed = 200
 export (int, 0, 200) var push = 100
 
+export var lives = 3
+
 signal fire
 signal shoot(bullet, rotation, position)
 signal reload
@@ -42,9 +44,19 @@ func _physics_process(delta):
 	look_at(get_global_mouse_position())
 	rotate(PI/2)
 
+func body_entered(body):
+	if (body.is_in_group("hostile")):
+		lives -= 1
+	if (lives <= 0):
+		die()
+
 func _on_Gun_shoot(bullet, direction, location):
 	emit_signal("shoot", bullet, direction, location)
 
-
 func _on_Gun_reload():
 	emit_signal("reload")
+	
+
+func die():
+	print("Player is DEAD")
+	queue_free()
