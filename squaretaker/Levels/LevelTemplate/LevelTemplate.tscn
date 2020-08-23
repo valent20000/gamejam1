@@ -31,6 +31,8 @@
 [ext_resource path="res://assets/new/wall2.png" type="Texture" id=29]
 [ext_resource path="res://assets/new/wall3.png" type="Texture" id=30]
 [ext_resource path="res://assets/new/wall4.png" type="Texture" id=31]
+[ext_resource path="res://assets/ost/Music/TakeCare_Levelbgm.wav" type="AudioStream" id=32]
+
 [ext_resource path="res://Brute/Brute.tscn" type="PackedScene" id=32]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -434,7 +436,9 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StoryEvents/1"]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 32 )
 autoplay = true
+
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Brute" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy2" method="_on_LevelTemplate_path_to_victim"]
@@ -452,7 +456,7 @@ autoplay = true
 [connection signal="victim_spotted" from="EnemyContainer/Enemy" to="." method="_on_Enemy_victim_spotted"]
 [connection signal="shoot" from="EnemyContainer/Enemy2" to="BulletSystem" method="_on_shoot"]
 [connection signal="victim_spotted" from="EnemyContainer/Enemy2" to="." method="_on_Enemy_victim_spotted"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group1/Engineer1" to="EnemyContainer/EngineerContainer/Group1/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group1/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group1/Engineer1" to="EnemyContainer/EngineerContainer/Group1/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group1/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
 [connection signal="body_entered" from="StoryEvents/1" to="StoryEvents" method="_on_1_body_entered"]

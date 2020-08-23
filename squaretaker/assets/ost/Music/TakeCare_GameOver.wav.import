@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/TakeCare_GameOver.wav-4141214553ac6070e3756a1c89f35621.sample"
+
+[deps]
+
+source_file="res://assets/ost/Music/TakeCare_GameOver.wav"
+dest_files=[ "res://.import/TakeCare_GameOver.wav-4141214553ac6070e3756a1c89f35621.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
