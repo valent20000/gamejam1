@@ -55,7 +55,10 @@ func _on_Gun_shoot(bullet, direction, location):
 
 func _on_Gun_reload():
 	emit_signal("reload")
-	
+
+func check_death():
+	if (lives <= 0):
+		die()	
 
 func die():
 	print("Player is DEAD")

@@ -51,5 +51,8 @@ func body_entered(body):
 	if (body.is_in_group("hostile")):
 		lives -= 1
 		emit_signal("hit")
+		check_death()
+
+func check_death():
 	if (lives <= 0):
 		die()

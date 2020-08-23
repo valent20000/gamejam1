@@ -21,7 +21,7 @@ radius = 250.0
 extents = Vector2( 16.4713, 16.2421 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 16.4814, 5.28933 )
+extents = Vector2( 23.25, 21.7959 )
 
 [node name="Brute" type="KinematicBody2D" groups=[
 "evil",
@@ -56,8 +56,13 @@ shape = SubResource( 4 )
 [node name="Hurtbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2( 7.62939e-06, -21.4541 )
+position = Vector2( 0.500008, -2.4541 )
 shape = SubResource( 5 )
+
+[node name="HitCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 [connection signal="body_entered" from="FOV" to="." method="_on_FOV_body_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]
+[connection signal="timeout" from="HitCooldown" to="." method="_on_HitCooldown_timeout"]
