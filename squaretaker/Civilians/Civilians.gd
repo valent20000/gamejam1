@@ -40,7 +40,6 @@ func body_entered(body):
 	check_death()
 	
 func check_death():
-	print(lives)
 	if (lives <= 0):
 		die()
 	

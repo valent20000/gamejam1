@@ -49,6 +49,7 @@ func _physics_process(delta):
 func body_entered(body):
 	if (body.is_in_group("hostile")):
 		lives -= 1
+		emit_signal("hit")
 		$SFXHit.play()
 	check_death()
 
@@ -67,7 +68,11 @@ func die():
 	dead = true
 	$CollisionShape2D.disabled = true
 	visible = false
+	disable()
 
+func disable():
+	set_process(false)
+	set_physics_process(false)
 
 func _on_SFXHit_finished():
 	if dead:

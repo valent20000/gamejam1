@@ -5,6 +5,8 @@ export (PackedScene) var Enemy
 
 var levelsize
 
+export (int) var enemy_number
+
 func _ready():
 	randomize()
 	levelsize = $Background.rect_size
@@ -16,10 +18,10 @@ func _ready():
 		var mo = MobileObstacle.instance()
 		mo.position = Vector2(rand_range(0, levelsize.x), rand_range(0, levelsize.y))
 		$MobileObstacleContainer.add_child(mo)
-	$Foreground/HUD.life = 42
-	$Foreground/HUD.ammo = $Player/Gun.ammo
+		
+	$Foreground/HUD.life = $Player.lives
 	$Foreground/HUD.victim_life = $Victim.lives
-	$Foreground/HUD.number = 3
+	$Foreground/HUD.number = enemy_number
 	$Foreground/HUD.initialize()
 
 signal path_to_victim(id, path)
