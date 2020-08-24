@@ -38,8 +38,12 @@ func die():
 	emit_signal("death")
 	$SFXDeath.play()
 	$CollisionShape2D.disabled = true
-	visible = false
-	
+	visible = false	
+	disable()
+
+func disable():
+	set_process(false)
+	set_physics_process(false)
 
 func win():
 	print("victory")

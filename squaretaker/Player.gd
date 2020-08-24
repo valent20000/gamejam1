@@ -68,7 +68,11 @@ func die():
 	dead = true
 	$CollisionShape2D.disabled = true
 	visible = false
+	disable()
 
+func disable():
+	set_process(false)
+	set_physics_process(false)
 
 func _on_SFXHit_finished():
 	if dead:

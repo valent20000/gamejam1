@@ -11,6 +11,11 @@ func die():
 	dead = true
 	$Body.disabled = true
 	visible = false
+	disable()
+
+func disable():
+	set_process(false)
+	set_physics_process(false)
 
 func body_entered(body):
 	if (body.is_in_group("hostile")):

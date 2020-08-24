@@ -9,6 +9,8 @@ var moving = false
 var target
 var current_path
 
+var dead = false
+
 #used for signals
 var id
 signal victim_spotted(id, startposition, endposition)
@@ -46,8 +48,13 @@ func _on_Hitbox_body_entered(body: Node) -> void:
 		die()
 
 func die():
+	dead = true
 	emit_signal("death")
-	queue_free()
+	disable()
+
+func disable():
+	set_process(false)
+	set_physics_process(false)
 
 func _on_LevelTemplate_path_to_victim(id, path) -> void:
 	if (id == self.id):
@@ -88,3 +95,8 @@ func _on_Hurtbox_body_entered(body: Node) -> void:
 
 func _on_HitCooldown_timeout() -> void:
 	moving = true
+
+
+func _on_SFXHit_finished():
+	if dead:
+		queue_free()

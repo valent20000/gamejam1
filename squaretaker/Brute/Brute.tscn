@@ -64,8 +64,8 @@ shape = SubResource( 5 )
 
 [node name="HitCooldown" type="Timer" parent="."]
 one_shot = true
-
 [connection signal="body_entered" from="FOV" to="." method="_on_FOV_body_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]
+[connection signal="finished" from="SFXHit" to="." method="_on_SFXHit_finished"]
 [connection signal="timeout" from="HitCooldown" to="." method="_on_HitCooldown_timeout"]

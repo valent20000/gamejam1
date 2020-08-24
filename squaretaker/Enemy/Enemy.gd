@@ -65,6 +65,11 @@ func die():
 	dead = true
 	$CollisionShape2D.disabled = true
 	visible = false
+	disable()
+
+func disable():
+	set_process(false)
+	set_physics_process(false)
 
 func _on_LevelTemplate_path_to_victim(id, path) -> void:
 	if (id == self.id):
