@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Levels/LevelTemplate/BulletSystem.gd" type="Script" id=1]
 [ext_resource path="res://victim/Victim.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objective/Objective.tscn" type="PackedScene" id=5]
 [ext_resource path="res://MobileObstacle/MobileObstacle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/TheHorde.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/new/walls.png" type="Texture" id=10]
 [ext_resource path="res://assets/new/floor1.png" type="Texture" id=11]
 [ext_resource path="res://assets/ost/Music/TakeCare_Levelbgm.wav" type="AudioStream" id=12]
@@ -350,6 +351,7 @@ _data = {
 [node name="Tutorial2" type="Node"]
 script = ExtResource( 27 )
 MobileObstacle = ExtResource( 6 )
+next_scene = ExtResource( 7 )
 
 [node name="Foreground" type="CanvasLayer" parent="."]
 layer = 2
@@ -442,7 +444,10 @@ position = Vector2( 274.807, 500.121 )
 [connection signal="reload" from="Player" to="Foreground/HUD" method="_on_Player_reload"]
 [connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="shoot" from="Player" to="Foreground/HUD" method="_on_Player_shoot"]
+[connection signal="death" from="Victim" to="." method="_on_Victim_death"]
 [connection signal="hit" from="Victim" to="Foreground/HUD" method="_on_Victim_hit"]
+[connection signal="reload" from="Victim" to="." method="_on_Victim_reload"]
+[connection signal="win" from="Victim" to="." method="_on_Victim_win"]
 [connection signal="body_entered" from="Objective" to="Victim" method="_on_Objective_body_entered"]
 [connection signal="victim_spotted" from="EnemyContainer/Enemy" to="." method="_on_victim_spotted"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group1/Engineer1" to="EnemyContainer/EngineerContainer/Group1/Landmine1" method="_on_owner_death"]

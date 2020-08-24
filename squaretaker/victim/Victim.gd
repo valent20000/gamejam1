@@ -8,6 +8,7 @@ export (int, 0, 200) var push = 100
 signal death
 signal hit
 
+signal win
 signal reload
 
 var patrol_points
@@ -49,7 +50,7 @@ func disable():
 	set_physics_process(false)
 
 func win():
-	print("victory")
+	emit_signal("win")
 	queue_free()
 
 func _on_Objective_body_entered(body: Node) -> void:
