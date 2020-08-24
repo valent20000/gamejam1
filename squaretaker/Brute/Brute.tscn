@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/new/killer.png" type="Texture" id=1]
 [ext_resource path="res://Brute/Brute.gd" type="Script" id=2]
+[ext_resource path="res://Enemy/SFXHit.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.8543, 13.7164 )
@@ -24,6 +25,7 @@ extents = Vector2( 16.4713, 16.2421 )
 extents = Vector2( 23.25, 21.7959 )
 
 [node name="Brute" type="KinematicBody2D" groups=[
+"alive",
 "evil",
 ]]
 collision_layer = 2
@@ -61,8 +63,9 @@ shape = SubResource( 5 )
 
 [node name="HitCooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="SFXHit" parent="." instance=ExtResource( 3 )]
 [connection signal="body_entered" from="FOV" to="." method="_on_FOV_body_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]
-[connection signal="finished" from="SFXHit" to="." method="_on_SFXHit_finished"]
 [connection signal="timeout" from="HitCooldown" to="." method="_on_HitCooldown_timeout"]
