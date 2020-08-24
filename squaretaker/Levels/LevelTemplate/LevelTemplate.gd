@@ -34,7 +34,6 @@ func _on_victim_spotted(id, startposition, endposition) -> void:
 func _on_Enemy_death() -> void:
 	pass # Replace with function body.
 
-
 func _on_Brute_death() -> void:
 	pass # Replace with function body.
 
@@ -45,4 +44,4 @@ func _on_Victim_reload():
 	get_tree().reload_current_scene()
 
 func _on_Victim_win():
-	get_tree().load_scene(next_scene)
+	get_tree().change_scene_to(next_scene)
