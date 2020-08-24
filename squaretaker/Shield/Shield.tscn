@@ -19,11 +19,12 @@ scale = Vector2( 2.50819, 0.150559 )
 texture = ExtResource( 1 )
 
 [node name="ShieldCooldown" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 
-[node name="ShieldDuration" type="Timer" parent="."]
-wait_time = 100.0
+[node name="ShieldDuration" type="Timer" parent="." groups=[
+"shield",
+]]
 one_shot = true
 [connection signal="timeout" from="ShieldCooldown" to="." method="_on_ShieldCooldown_timeout"]
 [connection signal="timeout" from="ShieldDuration" to="." method="_on_ShieldDuration_timeout"]
