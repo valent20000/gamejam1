@@ -38,8 +38,11 @@ func _on_Enemy_death() -> void:
 func _on_Brute_death() -> void:
 	pass # Replace with function body.
 
-func on_Victim_reload():
-	get_tree().reload_current_scene()
-
 func _on_Victim_death():
 	$Music.stop()
+	
+func _on_Victim_reload():
+	get_tree().reload_current_scene()
+
+func _on_Victim_win():
+	get_tree().load_scene(next_scene)

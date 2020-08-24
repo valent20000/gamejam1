@@ -10,6 +10,7 @@
 [ext_resource path="res://Levels/LevelTemplate/BulletSystem.gd" type="Script" id=8]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Brute/Brute.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Levels/TheSplit.tscn" type="PackedScene" id=10]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Enemy/Explosion.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/new/floor3.png" type="Texture" id=13]
@@ -344,6 +345,7 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 MobileObstacle = ExtResource( 6 )
+next_scene = ExtResource( 10 )
 enemy_number = 18
 
 [node name="Foreground" type="CanvasLayer" parent="."]
@@ -521,7 +523,10 @@ autoplay = true
 [connection signal="hit" from="Player" to="Foreground/HUD" method="_on_Player_hit"]
 [connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="body_entered" from="Objective" to="Victim" method="_on_Objective_body_entered"]
+[connection signal="death" from="Victim" to="." method="_on_Victim_death"]
 [connection signal="hit" from="Victim" to="Foreground/HUD" method="_on_Victim_hit"]
+[connection signal="reload" from="Victim" to="." method="_on_Victim_reload"]
+[connection signal="win" from="Victim" to="." method="_on_Victim_win"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group1/Engineer1" to="EnemyContainer/EngineerContainer/Group1/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group1/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
 [connection signal="death" from="EnemyContainer/Enemy" to="Foreground/HUD" method="_on_Enemy_death"]
