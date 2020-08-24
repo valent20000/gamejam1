@@ -458,6 +458,7 @@ autoplay = true
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy2" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="hit" from="Player" to="Foreground/HUD" method="_on_Player_hit"]
+
 [connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="body_entered" from="Objective" to="Victim" method="_on_Objective_body_entered"]
 [connection signal="hit" from="Victim" to="Foreground/HUD" method="_on_Victim_hit"]
