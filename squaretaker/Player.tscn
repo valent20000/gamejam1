@@ -46,13 +46,11 @@ drag_margin_top = 0.1
 drag_margin_right = 0.1
 drag_margin_bottom = 0.1
 
-
 [node name="SFXHit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
 
 [node name="Shield" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, -20 )
-
 [connection signal="fire" from="." to="Gun" method="_on_fire"]
 [connection signal="reload" from="Gun" to="." method="_on_Gun_reload"]
 [connection signal="shoot" from="Gun" to="." method="_on_Gun_shoot"]

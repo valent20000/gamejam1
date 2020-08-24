@@ -1,7 +1,6 @@
 extends Node
 
 export (PackedScene) var MobileObstacle
-export (PackedScene) var Enemy
 
 var levelsize
 
