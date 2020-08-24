@@ -15,6 +15,10 @@ func _ready():
 	if patrol_path:
 		patrol_points = get_node(patrol_path).curve.get_baked_points()
 
+func orient(pos):
+	look_at(pos)
+	rotate(PI/2)
+
 func _physics_process(delta):
 	if !patrol_path:
 		return
@@ -22,6 +26,7 @@ func _physics_process(delta):
 	if position.distance_to(target) < 10:
 		patrol_index = wrapi(patrol_index + 1, 0, patrol_points.size())
 		target = patrol_points[patrol_index]
+	orient(target)
 	velocity = (target - position).normalized() * speed
 	velocity = move_and_slide(velocity)
 

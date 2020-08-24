@@ -25,7 +25,6 @@ __meta__ = {
 }
 Bullet = ExtResource( 3 )
 needs_reload = false
-time_between_shoot = 0.1
 
 [node name="GunSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -8 )

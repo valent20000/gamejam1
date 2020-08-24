@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Guns/Bullets/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://assets/misc/bullet.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 0.5, 0.75 )
+extents = Vector2( 2, 2 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -14,6 +14,20 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 1 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 20.0
+orbit_velocity = 2.0
+orbit_velocity_random = 0.0
+angle_random = 1.0
+scale = 0.25
+color = Color( 0.0941176, 0.933333, 0.756863, 1 )
+
 [node name="KinematicBody2D" type="KinematicBody2D" groups=[
 "hostile",
 ]]
@@ -21,14 +35,25 @@ scale = Vector2( 4, 4 )
 z_index = 2
 z_as_relative = false
 script = ExtResource( 1 )
-speed = 35
+speed = 40
 life = 1
+rotate_speed = 360
 push = 1200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="Bullet" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -0.259756 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 1.19209e-07, 1.78814e-07 )
+texture = ExtResource( 2 )
+color = Color( 0.0862745, 0.870588, 0.705882, 1 )
+energy = 4.0
+
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 16
+lifetime = 0.5
+process_material = SubResource( 3 )
