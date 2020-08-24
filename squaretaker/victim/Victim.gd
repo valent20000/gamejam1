@@ -27,7 +27,6 @@ func realistic_move():
 			collision.collider.apply_central_impulse(-collision.normal * push)
 
 func _physics_process(delta):
-	print(lives)
 	if !patrol_path:
 		return
 	var target = patrol_points[patrol_index]
