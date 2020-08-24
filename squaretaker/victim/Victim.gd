@@ -54,6 +54,9 @@ func body_entered(body):
 		lives -= 1
 		$SFXHit.play()
 		emit_signal("hit")
+		check_death()
+
+func check_death():
 	if (lives <= 0):
 		die()
 

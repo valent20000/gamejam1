@@ -18,7 +18,6 @@ signal victim_spotted(id, startposition, endposition)
 func _ready():
 	randomize()
 	id = rand_range(1, 100000)
-	print(id)
 
 signal fire
 signal shoot(bullet, rotation, position)

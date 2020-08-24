@@ -4,6 +4,7 @@
 [ext_resource path="res://Guns/Gun.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.gd" type="Script" id=3]
 [ext_resource path="res://assets/ost/SFX/Player/Player_Damage.wav" type="AudioStream" id=4]
+[ext_resource path="res://Shield/Shield.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13.5794, 14.938 )
@@ -20,7 +21,7 @@ animations = [ {
 "alive",
 "good",
 ]]
-position = Vector2( 336, 240 )
+position = Vector2( 336, 237.919 )
 z_index = 1
 script = ExtResource( 3 )
 __meta__ = {
@@ -45,8 +46,13 @@ drag_margin_top = 0.1
 drag_margin_right = 0.1
 drag_margin_bottom = 0.1
 
+
 [node name="SFXHit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+
+[node name="Shield" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, -300 )
+
 [connection signal="fire" from="." to="Gun" method="_on_fire"]
 [connection signal="reload" from="Gun" to="." method="_on_Gun_reload"]
 [connection signal="shoot" from="Gun" to="." method="_on_Gun_shoot"]
