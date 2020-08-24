@@ -50,3 +50,4 @@ stream = ExtResource( 4 )
 [connection signal="fire" from="." to="Gun" method="_on_fire"]
 [connection signal="reload" from="Gun" to="." method="_on_Gun_reload"]
 [connection signal="shoot" from="Gun" to="." method="_on_Gun_shoot"]
+[connection signal="finished" from="SFXHit" to="." method="_on_SFXHit_finished"]

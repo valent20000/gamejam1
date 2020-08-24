@@ -5,6 +5,8 @@ export (int, 0, 200) var push = 100
 
 export var lives = 3
 
+var dead = false
+
 signal fire
 signal shoot(bullet, rotation, position)
 signal reload
@@ -57,7 +59,13 @@ func _on_Gun_shoot(bullet, direction, location):
 func _on_Gun_reload():
 	emit_signal("reload")
 	
-
 func die():
-	print("Player is DEAD")
-	queue_free()
+	emit_signal("death")
+	dead = true
+	$CollisionShape2D.disabled = true
+	visible = false
+
+
+func _on_SFXHit_finished():
+	if dead:
+		queue_free()

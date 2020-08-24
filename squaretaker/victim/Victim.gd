@@ -33,16 +33,17 @@ func _physics_process(delta):
 	velocity = (target - position).normalized() * speed
 	realistic_move()
 
+
 func die():
-	print("defeat")
+	emit_signal("death")
 	$SFXDeath.play()
-	queue_free()
-	set_physics_process(false)
+	$CollisionShape2D.disabled = true
+	visible = false
+	
 
 func win():
 	print("victory")
 	queue_free()
-	set_physics_process(false)
 
 func _on_Objective_body_entered(body: Node) -> void:
 	if (body.is_in_group("victims")):
@@ -55,3 +56,7 @@ func body_entered(body):
 		emit_signal("hit")
 	if (lives <= 0):
 		die()
+
+
+func _on_SFXDeath_finished():
+	queue_free()

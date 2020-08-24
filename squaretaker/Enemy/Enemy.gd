@@ -64,6 +64,8 @@ func body_entered(body):
 func die():
 	emit_signal("death")
 	dead = true
+	$CollisionShape2D.disabled = true
+	visible = false
 
 func _on_LevelTemplate_path_to_victim(id, path) -> void:
 	if (id == self.id):

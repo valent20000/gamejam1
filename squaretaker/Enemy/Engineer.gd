@@ -2,11 +2,15 @@ extends RigidBody2D
 
 export var lives = 2
 
+var dead = false
+
 signal death
 
 func die():
 	emit_signal("death")
-	queue_free()
+	dead = true
+	$Body.disabled = true
+	visible = false
 
 func body_entered(body):
 	if (body.is_in_group("hostile")):
@@ -14,3 +18,8 @@ func body_entered(body):
 		$SFXHit.play_random()
 	if (lives <= 0):
 		die()
+		
+
+func _on_SFXHit_finished():
+	if dead:
+		queue_free()
