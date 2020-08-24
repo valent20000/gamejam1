@@ -343,7 +343,6 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 MobileObstacle = ExtResource( 6 )
-Enemy = ExtResource( 9 )
 enemy_number = 18
 
 [node name="Foreground" type="CanvasLayer" parent="."]

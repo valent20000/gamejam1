@@ -333,7 +333,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [sub_resource type="Curve2D" id=22]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 562.335, 1131.13, 0, 0, 0, 0, 554.335, 549.126, 0, 0, 0, 0, 526.335, 531.126, 0, 0, 0, 0, 531.386, 206.292, 0, 0, 0, 0, 592.817, 162.841, 0, 0, 0, 0, 940.424, 174.827, 0, 0, 0, 0, 1040.81, 254.238, 0, 0, 0, 0, 1174.16, 318.665, 0, 0, 0, 0, 1367.44, 583.865, 0, 0, 0, 0, 1394.41, 1346.5 )
+"points": PoolVector2Array( 0, 0, 0, 0, 562.335, 1131.13, 0, 0, 0, 0, 566.266, 550.537, 0, 0, 0, 0, 539.539, 532.719, 0, 0, 0, 0, 490.867, 301.903, 0, 0, 0, 0, 522.821, 219.496, 0, 0, 0, 0, 592.817, 162.841, 0, 0, 0, 0, 940.424, 174.827, 0, 0, 0, 0, 1040.81, 254.238, 0, 0, 0, 0, 1174.16, 318.665, 0, 0, 0, 0, 1367.44, 583.865, 0, 0, 0, 0, 1394.41, 1346.5 )
 }
 
 [node name="LevelTemplate" type="Node"]
@@ -342,7 +342,7 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 MobileObstacle = ExtResource( 6 )
-enemy_number = 18
+enemy_number = 30
 
 [node name="Foreground" type="CanvasLayer" parent="."]
 layer = 2
@@ -353,11 +353,10 @@ layer = 2
 anchor_top = 0.00222473
 anchor_right = 1.0
 anchor_bottom = 1.00222
-
-margin_top = -0.334838
-margin_right = 974.0
-margin_bottom = 1055.67
-
+margin_left = -1.88177
+margin_top = -2.21652
+margin_right = 972.118
+margin_bottom = 1053.79
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -397,6 +396,7 @@ z_index = 4
 script = ExtResource( 8 )
 
 [node name="Path2D" type="Path2D" parent="."]
+position = Vector2( 29.3997, -10.6907 )
 curve = SubResource( 22 )
 
 [node name="Victim" parent="." instance=ExtResource( 4 )]
@@ -574,6 +574,114 @@ position = Vector2( 1123.13, 540.055 )
 [node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group18" instance=ExtResource( 14 )]
 position = Vector2( 962.917, 346.74 )
 
+[node name="Group19" type="Node2D" parent="EnemyContainer/EngineerContainer"]
+script = ExtResource( 18 )
+
+[node name="Engineer1" parent="EnemyContainer/EngineerContainer/Group19" instance=ExtResource( 15 )]
+position = Vector2( 1269.65, 1141.2 )
+
+[node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group19" instance=ExtResource( 14 )]
+position = Vector2( 1262.08, 1007.86 )
+
+[node name="Group20" type="Node2D" parent="EnemyContainer/EngineerContainer"]
+script = ExtResource( 18 )
+
+[node name="Engineer1" parent="EnemyContainer/EngineerContainer/Group20" instance=ExtResource( 15 )]
+position = Vector2( 1317.75, 1148.33 )
+
+[node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group20" instance=ExtResource( 14 )]
+position = Vector2( 1304.85, 1006.08 )
+
+[node name="Group21" type="Node2D" parent="EnemyContainer/EngineerContainer"]
+script = ExtResource( 18 )
+
+[node name="Engineer1" parent="EnemyContainer/EngineerContainer/Group21" instance=ExtResource( 15 )]
+position = Vector2( 1501.28, 1198.22 )
+
+[node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group21" instance=ExtResource( 14 )]
+position = Vector2( 1411.75, 1068.44 )
+
+[node name="Group22" type="Node2D" parent="EnemyContainer/EngineerContainer"]
+script = ExtResource( 18 )
+
+[node name="Engineer1" parent="EnemyContainer/EngineerContainer/Group22" instance=ExtResource( 15 )]
+position = Vector2( 1442.48, 1191.09 )
+
+[node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group22" instance=ExtResource( 14 )]
+position = Vector2( 1408.19, 1041.72 )
+
+[node name="Group23" type="Node2D" parent="EnemyContainer/EngineerContainer"]
+script = ExtResource( 18 )
+
+[node name="Engineer1" parent="EnemyContainer/EngineerContainer/Group23" instance=ExtResource( 15 )]
+position = Vector2( 1383.68, 1203.56 )
+
+[node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group23" instance=ExtResource( 14 )]
+position = Vector2( 1413.53, 1100.52 )
+
+[node name="Group24" type="Node2D" parent="EnemyContainer/EngineerContainer"]
+script = ExtResource( 18 )
+
+[node name="Engineer1" parent="EnemyContainer/EngineerContainer/Group24" instance=ExtResource( 15 )]
+position = Vector2( 1324.88, 1210.69 )
+
+[node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group24" instance=ExtResource( 14 )]
+position = Vector2( 1598.84, 1009.64 )
+
+[node name="Group25" type="Node2D" parent="EnemyContainer/EngineerContainer"]
+script = ExtResource( 18 )
+
+[node name="Engineer1" parent="EnemyContainer/EngineerContainer/Group25" instance=ExtResource( 15 )]
+position = Vector2( 1581.46, 1128.73 )
+
+[node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group25" instance=ExtResource( 14 )]
+position = Vector2( 1557.86, 1007.86 )
+
+[node name="Group26" type="Node2D" parent="EnemyContainer/EngineerContainer"]
+script = ExtResource( 18 )
+
+[node name="Engineer1" parent="EnemyContainer/EngineerContainer/Group26" instance=ExtResource( 15 )]
+position = Vector2( 1538.7, 1130.51 )
+
+[node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group26" instance=ExtResource( 14 )]
+position = Vector2( 1520.44, 1009.64 )
+
+[node name="Group27" type="Node2D" parent="EnemyContainer/EngineerContainer"]
+script = ExtResource( 18 )
+
+[node name="Engineer1" parent="EnemyContainer/EngineerContainer/Group27" instance=ExtResource( 15 )]
+position = Vector2( 1490.59, 1134.07 )
+
+[node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group27" instance=ExtResource( 14 )]
+position = Vector2( 1474.12, 1006.08 )
+
+[node name="Group28" type="Node2D" parent="EnemyContainer/EngineerContainer"]
+script = ExtResource( 18 )
+
+[node name="Engineer1" parent="EnemyContainer/EngineerContainer/Group28" instance=ExtResource( 15 )]
+position = Vector2( 1438.92, 1135.85 )
+
+[node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group28" instance=ExtResource( 14 )]
+position = Vector2( 1427.79, 1006.08 )
+
+[node name="Group29" type="Node2D" parent="EnemyContainer/EngineerContainer"]
+script = ExtResource( 18 )
+
+[node name="Engineer1" parent="EnemyContainer/EngineerContainer/Group29" instance=ExtResource( 15 )]
+position = Vector2( 1403.28, 1139.42 )
+
+[node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group29" instance=ExtResource( 14 )]
+position = Vector2( 1390.37, 1002.52 )
+
+[node name="Group30" type="Node2D" parent="EnemyContainer/EngineerContainer"]
+script = ExtResource( 18 )
+
+[node name="Engineer1" parent="EnemyContainer/EngineerContainer/Group30" instance=ExtResource( 15 )]
+position = Vector2( 1360.52, 1142.98 )
+
+[node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group30" instance=ExtResource( 14 )]
+position = Vector2( 1342.26, 1002.52 )
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 32 )
 autoplay = true
@@ -590,48 +698,84 @@ autoplay = true
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group3/Engineer1" to="EnemyContainer/EngineerContainer/Group3/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group3/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group3/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group4/Engineer1" to="EnemyContainer/EngineerContainer/Group4/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group4/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group4/Engineer1" to="EnemyContainer/EngineerContainer/Group4/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group4/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group5/Engineer1" to="EnemyContainer/EngineerContainer/Group5/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group5/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group5/Engineer1" to="EnemyContainer/EngineerContainer/Group5/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group5/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group6/Engineer1" to="EnemyContainer/EngineerContainer/Group6/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group6/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group6/Engineer1" to="EnemyContainer/EngineerContainer/Group6/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group6/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group7/Engineer1" to="EnemyContainer/EngineerContainer/Group7/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group7/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group7/Engineer1" to="EnemyContainer/EngineerContainer/Group7/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group7/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group8/Engineer1" to="EnemyContainer/EngineerContainer/Group8/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group8/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group8/Engineer1" to="EnemyContainer/EngineerContainer/Group8/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group8/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group9/Engineer1" to="EnemyContainer/EngineerContainer/Group9/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group9/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group9/Engineer1" to="EnemyContainer/EngineerContainer/Group9/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group9/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group10/Engineer1" to="EnemyContainer/EngineerContainer/Group10/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group10/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group10/Engineer1" to="EnemyContainer/EngineerContainer/Group10/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group10/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group11/Engineer1" to="EnemyContainer/EngineerContainer/Group11/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group11/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group11/Engineer1" to="EnemyContainer/EngineerContainer/Group11/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group11/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group12/Engineer1" to="EnemyContainer/EngineerContainer/Group12/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group12/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group12/Engineer1" to="EnemyContainer/EngineerContainer/Group12/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group12/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group13/Engineer1" to="EnemyContainer/EngineerContainer/Group13/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group13/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group13/Engineer1" to="EnemyContainer/EngineerContainer/Group13/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group13/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group14/Engineer1" to="EnemyContainer/EngineerContainer/Group14/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group14/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group14/Engineer1" to="EnemyContainer/EngineerContainer/Group14/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group14/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group15/Engineer1" to="EnemyContainer/EngineerContainer/Group15/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group15/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group15/Engineer1" to="EnemyContainer/EngineerContainer/Group15/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group15/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group16/Engineer1" to="EnemyContainer/EngineerContainer/Group16/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group16/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group16/Engineer1" to="EnemyContainer/EngineerContainer/Group16/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group16/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group17/Engineer1" to="EnemyContainer/EngineerContainer/Group17/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group17/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group17/Engineer1" to="EnemyContainer/EngineerContainer/Group17/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group17/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
-[connection signal="death" from="EnemyContainer/EngineerContainer/Group18/Engineer1" to="EnemyContainer/EngineerContainer/Group18/Landmine1" method="_on_owner_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group18/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group18/Engineer1" to="EnemyContainer/EngineerContainer/Group18/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group18/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group19/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group19/Engineer1" to="EnemyContainer/EngineerContainer/Group19/Landmine1" method="_on_owner_death"]
+[connection signal="explosion" from="EnemyContainer/EngineerContainer/Group19/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group20/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group20/Engineer1" to="EnemyContainer/EngineerContainer/Group20/Landmine1" method="_on_owner_death"]
+[connection signal="explosion" from="EnemyContainer/EngineerContainer/Group20/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group21/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group21/Engineer1" to="EnemyContainer/EngineerContainer/Group21/Landmine1" method="_on_owner_death"]
+[connection signal="explosion" from="EnemyContainer/EngineerContainer/Group21/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group22/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group22/Engineer1" to="EnemyContainer/EngineerContainer/Group22/Landmine1" method="_on_owner_death"]
+[connection signal="explosion" from="EnemyContainer/EngineerContainer/Group22/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group23/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group23/Engineer1" to="EnemyContainer/EngineerContainer/Group23/Landmine1" method="_on_owner_death"]
+[connection signal="explosion" from="EnemyContainer/EngineerContainer/Group23/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group24/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group24/Engineer1" to="EnemyContainer/EngineerContainer/Group24/Landmine1" method="_on_owner_death"]
+[connection signal="explosion" from="EnemyContainer/EngineerContainer/Group24/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group25/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group25/Engineer1" to="EnemyContainer/EngineerContainer/Group25/Landmine1" method="_on_owner_death"]
+[connection signal="explosion" from="EnemyContainer/EngineerContainer/Group25/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group26/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group26/Engineer1" to="EnemyContainer/EngineerContainer/Group26/Landmine1" method="_on_owner_death"]
+[connection signal="explosion" from="EnemyContainer/EngineerContainer/Group26/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group27/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group27/Engineer1" to="EnemyContainer/EngineerContainer/Group27/Landmine1" method="_on_owner_death"]
+[connection signal="explosion" from="EnemyContainer/EngineerContainer/Group27/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group28/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group28/Engineer1" to="EnemyContainer/EngineerContainer/Group28/Landmine1" method="_on_owner_death"]
+[connection signal="explosion" from="EnemyContainer/EngineerContainer/Group28/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group29/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group29/Engineer1" to="EnemyContainer/EngineerContainer/Group29/Landmine1" method="_on_owner_death"]
+[connection signal="explosion" from="EnemyContainer/EngineerContainer/Group29/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group30/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
+[connection signal="death" from="EnemyContainer/EngineerContainer/Group30/Engineer1" to="EnemyContainer/EngineerContainer/Group30/Landmine1" method="_on_owner_death"]
+[connection signal="explosion" from="EnemyContainer/EngineerContainer/Group30/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
