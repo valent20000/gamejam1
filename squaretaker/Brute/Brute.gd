@@ -2,12 +2,13 @@ extends KinematicBody2D
 
 export (int) var lives = 2
 export (int) var speed = 160
-export (int) var damage = 2
+export (int) var damage = 1
 
 var alert = false
 var moving = false
 var target
 var current_path
+var fighting_fit = true
 
 var dead = false
 
@@ -39,6 +40,11 @@ func _process(delta):
 		emit_signal("victim_spotted", id, position, target.position)
 		var move_distance = speed * delta
 		move_along_path(move_distance)
+	print($Hurtbox.get_overlapping_bodies().has(target))
+	print(fighting_fit)
+	if (fighting_fit && $Hurtbox.get_overlapping_bodies().has(target)):
+		print("cool")
+		swing(target)
 
 func _on_Hitbox_body_entered(body: Node) -> void:
 	if (body.is_in_group("hostile")):
@@ -51,6 +57,7 @@ func die():
 	dead = true
 	emit_signal("death")
 	disable()
+	queue_free()
 
 func disable():
 	set_process(false)
@@ -86,17 +93,30 @@ signal swing
 
 func _on_Hurtbox_body_entered(body: Node) -> void:
 	print("hurtbox")
-	if (body.is_in_group("good")):
+	print(body.get_groups())
+	swing(body)
+
+func swing(body):
+	if (body.is_in_group("good") && fighting_fit):
 		print("hurt")
-		body.lives -= 2
+		body.lives -= damage
 		emit_signal("swing")
 		moving = false
+		fighting_fit = false
 		$HitCooldown.start()
 
 func _on_HitCooldown_timeout() -> void:
+	print("timeout")
 	moving = true
-
+	fighting_fit = true
 
 func _on_SFXHit_finished():
 	if dead:
 		queue_free()
+
+func body_entered(body):
+	if (body.is_in_group("hostile")):
+		lives -= 1
+		$SFXHit.play_random()
+	if (lives <= 0):
+		die()

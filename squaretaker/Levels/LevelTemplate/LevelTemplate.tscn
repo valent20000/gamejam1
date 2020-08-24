@@ -458,8 +458,8 @@ __meta__ = {
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 32 )
 autoplay = true
-[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy2" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Brute" method="_on_LevelTemplate_path_to_victim"]
+[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy2" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="hit" from="Player" to="Foreground/HUD" method="_on_Player_hit"]
 [connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
@@ -476,6 +476,7 @@ autoplay = true
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group1/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
 [connection signal="death" from="EnemyContainer/Brute" to="Foreground/HUD" method="_on_Brute_death"]
 [connection signal="swing" from="EnemyContainer/Brute" to="Player" method="check_death"]
+[connection signal="swing" from="EnemyContainer/Brute" to="Victim" method="check_death"]
 [connection signal="swing" from="EnemyContainer/Brute" to="CiviliansContainer/Civilian" method="check_death"]
 [connection signal="victim_spotted" from="EnemyContainer/Brute" to="." method="_on_victim_spotted"]
 [connection signal="body_entered" from="StoryEvents/1" to="StoryEvents" method="_on_1_body_entered"]
