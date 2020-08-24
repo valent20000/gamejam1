@@ -8,6 +8,8 @@ export (int, 0, 200) var push = 100
 signal death
 signal hit
 
+signal reload
+
 var patrol_points
 var patrol_index = 0
 var velocity
@@ -66,4 +68,5 @@ func check_death():
 		die()
 
 func _on_SFXDeath_finished():
+	emit_signal("reload")
 	queue_free()
