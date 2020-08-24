@@ -21,6 +21,7 @@
 [ext_resource path="res://assets/new/floor2.png" type="Texture" id=19]
 [ext_resource path="res://assets/new/empty.png" type="Texture" id=20]
 [ext_resource path="res://floor.tres" type="Texture" id=21]
+[ext_resource path="res://Brute/Brute.tscn" type="PackedScene" id=21]
 [ext_resource path="res://assets/ost/Music/TakeCare_Levelbgm.wav" type="AudioStream" id=32]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -351,7 +352,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [sub_resource type="Curve2D" id=22]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 556.45, 1112.71, 0, 0, 0, 0, 526.911, 3.60531 )
+"points": PoolVector2Array( 0, 0, 0, 0, 564.001, 1160.34, 0, 0, 0, 0, 526.911, 3.60531 )
 }
 
 [sub_resource type="Curve2D" id=23]
@@ -365,7 +366,6 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 MobileObstacle = ExtResource( 6 )
-Enemy = ExtResource( 9 )
 enemy_number = 3
 
 [node name="Foreground" type="CanvasLayer" parent="."]
@@ -445,6 +445,9 @@ position = Vector2( 700.684, 1032.39 )
 [node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group1" instance=ExtResource( 14 )]
 position = Vector2( 690.602, 989.116 )
 
+[node name="Brute" parent="EnemyContainer" instance=ExtResource( 21 )]
+position = Vector2( 379.288, 961.992 )
+
 [node name="CiviliansContainer" type="Node2D" parent="."]
 
 [node name="CivilianPath" type="Path2D" parent="CiviliansContainer"]
@@ -470,6 +473,9 @@ __meta__ = {
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 32 )
 autoplay = true
+
+[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy2" method="_on_LevelTemplate_path_to_victim"]
+[connection signal="path_to_victim" from="." to="EnemyContainer/Brute" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy2" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="hit" from="Player" to="Foreground/HUD" method="_on_Player_hit"]
@@ -485,4 +491,8 @@ autoplay = true
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group1/Engineer1" to="Foreground/HUD" method="_on_Enemy_death"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group1/Engineer1" to="EnemyContainer/EngineerContainer/Group1/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group1/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
+[connection signal="death" from="EnemyContainer/Brute" to="Foreground/HUD" method="_on_Brute_death"]
+[connection signal="swing" from="EnemyContainer/Brute" to="Player" method="check_death"]
+[connection signal="swing" from="EnemyContainer/Brute" to="CiviliansContainer/Civilian" method="check_death"]
+[connection signal="victim_spotted" from="EnemyContainer/Brute" to="." method="_on_victim_spotted"]
 [connection signal="body_entered" from="StoryEvents/1" to="StoryEvents" method="_on_1_body_entered"]

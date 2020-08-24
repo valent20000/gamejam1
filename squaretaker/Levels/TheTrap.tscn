@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://assets/new/floor1.png" type="Texture" id=1]
 [ext_resource path="res://assets/new/walls.png" type="Texture" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://MobileObstacle/MobileObstacle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/LevelTemplate/LevelTemplate.gd" type="Script" id=7]
 [ext_resource path="res://Levels/LevelTemplate/BulletSystem.gd" type="Script" id=8]
-[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/new/floor3.png" type="Texture" id=13]
 [ext_resource path="res://Enemy/Landmine.tscn" type="PackedScene" id=14]
@@ -334,7 +333,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [sub_resource type="Curve2D" id=22]
 _data = {
-"points": PoolVector2Array( 4.15605, 116.781, -4.15605, -116.781, 567.552, 875.502, 0, 0, 0, 0, 603.86, 384.009, 0, 0, 0, 0, 563.333, 316.416, 0, 0, 0, 0, 582.846, 142.026, -37.2505, 46.0396, 37.2505, -46.0396, 584.361, 21.3854, 0, 0, 0, 0, 659.621, -18.2191, -53.9716, -21.3129, 53.9716, 21.3129, 915.193, -16.7982, 0, 0, 0, 0, 1192.1, 134.502, -6.3496, -42.6258, 6.3496, 42.6258, 1389.38, 382.871, -31.748, -11.3669, 31.748, 11.3669, 1413.35, 673.892, 0, 0, 0, 0, 1404.36, 1045.38 )
+"points": PoolVector2Array( 0, 0, 0, 0, 562.335, 1131.13, 0, 0, 0, 0, 554.335, 549.126, 0, 0, 0, 0, 526.335, 531.126, 0, 0, 0, 0, 531.386, 206.292, 0, 0, 0, 0, 592.817, 162.841, 0, 0, 0, 0, 940.424, 174.827, 0, 0, 0, 0, 1040.81, 254.238, 0, 0, 0, 0, 1174.16, 318.665, 0, 0, 0, 0, 1367.44, 583.865, 0, 0, 0, 0, 1394.41, 1346.5 )
 }
 
 [node name="LevelTemplate" type="Node"]
@@ -343,7 +342,6 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 MobileObstacle = ExtResource( 6 )
-Enemy = ExtResource( 9 )
 enemy_number = 18
 
 [node name="Foreground" type="CanvasLayer" parent="."]
@@ -355,9 +353,11 @@ layer = 2
 anchor_top = 0.00222473
 anchor_right = 1.0
 anchor_bottom = 1.00222
-margin_top = -1.33484
-margin_right = 1164.0
-margin_bottom = 1302.67
+
+margin_top = -0.334838
+margin_right = 974.0
+margin_bottom = 1055.67
+
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -396,15 +396,13 @@ position = Vector2( 1398, 1348.58 )
 z_index = 4
 script = ExtResource( 8 )
 
-[node name="VictimPath" type="Path2D" parent="."]
-position = Vector2( -20.7426, 170.424 )
-scale = Vector2( 0.998212, 1.10833 )
+[node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 22 )
 
 [node name="Victim" parent="." instance=ExtResource( 4 )]
 position = Vector2( 565.972, 1185.34 )
 speed = 40
-patrol_path = NodePath("../VictimPath")
+patrol_path = NodePath("../Path2D")
 
 [node name="EnemyContainer" type="Node" parent="."]
 

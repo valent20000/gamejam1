@@ -42,4 +42,3 @@ func body_entered(body):
 func check_death():
 	if (lives <= 0):
 		die()
-	
