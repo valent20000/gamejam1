@@ -1,0 +1,9 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/ost/SFX/Enemy/Enemy_Damage_3.wav" type="AudioStream" id=1]
+[ext_resource path="res://SFXPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/ost/SFX/Enemy/Enemy_Damage_1.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/ost/SFX/Enemy/Enemy_Damage_2.wav" type="AudioStream" id=4]
+
+[node name="SFXHit" instance=ExtResource( 2 )]
+sounds = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ) ]

@@ -35,6 +35,7 @@ func _physics_process(delta):
 
 func die():
 	print("defeat")
+	$SFXDeath.play()
 	queue_free()
 	set_physics_process(false)
 
@@ -50,6 +51,7 @@ func _on_Objective_body_entered(body: Node) -> void:
 func body_entered(body):
 	if (body.is_in_group("hostile")):
 		lives -= 1
+		$SFXHit.play()
 		emit_signal("hit")
 	if (lives <= 0):
 		die()

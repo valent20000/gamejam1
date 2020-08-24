@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export (int) var lives = 1
+export (int) var lives = 2
 export (int) var speed = 160
 
 var fire_allowed = false
@@ -8,6 +8,8 @@ var alert = false
 var moving = false
 var target
 var current_path
+
+var dead = false
 
 #used for signals
 var id
@@ -55,12 +57,13 @@ func _physics_process(delta):
 func body_entered(body):
 	if (body.is_in_group("hostile")):
 		lives -= 1
+		$SFXHit.play_random()
 	if (lives <= 0):
 		die()
 		
 func die():
 	emit_signal("death")
-	queue_free()
+	dead = true
 
 func _on_LevelTemplate_path_to_victim(id, path) -> void:
 	if (id == self.id):
@@ -102,3 +105,8 @@ func _on_Gun_shoot(bullet, direction, location):
 
 func _on_Lag_timeout():
 	fire_allowed = true
+
+
+func _on_SFXHit_finished():
+	if dead:
+		queue_free()

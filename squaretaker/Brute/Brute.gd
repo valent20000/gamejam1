@@ -52,6 +52,7 @@ func _on_Hitbox_body_entered(body: Node) -> void:
 	print("Brute hit")
 	if (body.is_in_group("hostile")):
 		lives -= 1
+		$SFXHit.play_random()
 	if (lives <= 0):
 		die()
 

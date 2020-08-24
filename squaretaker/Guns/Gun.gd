@@ -26,6 +26,7 @@ func _on_fire():
 			var vec = 1.1*Vector2(0, size.y).rotated(get_global_rotation())
 			emit_signal("shoot", Bullet, get_global_rotation(), get_global_position() - vec)
 			ammo_left-=1
+			$SFXPlayer.play_random()
 			if ammo_left <= 0 and needs_reload:
 				no_ammo = true
 				$Reload.start()

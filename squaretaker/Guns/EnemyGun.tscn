@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/misc/gun.png" type="Texture" id=1]
 [ext_resource path="res://Guns/Gun.gd" type="Script" id=2]
 [ext_resource path="res://Guns/Bullets/EnemyBullet.tscn" type="PackedScene" id=3]
-
+[ext_resource path="res://assets/ost/SFX/Enemy/Enemy_Laser_Shot_4.wav" type="AudioStream" id=4]
+[ext_resource path="res://SFXPlayer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/ost/SFX/Enemy/Enemy_Laser_Shot_2.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/ost/SFX/Enemy/Enemy_Laser_Shot_1.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/ost/SFX/Enemy/Enemy_Laser_Shot_5.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/ost/SFX/Enemy/Enemy_Laser_Shot_6.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/ost/SFX/Enemy/Enemy_Laser_Shot_3.wav" type="AudioStream" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -32,5 +38,8 @@ one_shot = true
 [node name="TimeBetweenShoot" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="SFXPlayer" parent="." instance=ExtResource( 5 )]
+sounds = [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 9 ) ]
 [connection signal="timeout" from="Reload" to="." method="_on_Reload_timeout"]
 [connection signal="timeout" from="TimeBetweenShoot" to="." method="_on_TimeBetweenShoot_timeout"]

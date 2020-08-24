@@ -4,6 +4,7 @@ var first = true
 
 func _ready():
 	$Explosion.set_emitting(true) 
+	$Sound.play()
 
 func set_radius(r):
 	$Body.shape.set_radius(r)
