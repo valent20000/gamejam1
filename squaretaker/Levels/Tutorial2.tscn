@@ -438,10 +438,11 @@ position = Vector2( 200.094, 251.364 )
 position = Vector2( 274.807, 500.121 )
 [connection signal="path_to_victim" from="." to="EnemyContainer/Brute" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy" method="_on_LevelTemplate_path_to_victim"]
+[connection signal="death" from="Player" to="Victim" method="_on_Player_death"]
 [connection signal="hit" from="Player" to="Foreground/HUD" method="_on_Player_hit"]
 [connection signal="reload" from="Player" to="Foreground/HUD" method="_on_Player_reload"]
-[connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="shoot" from="Player" to="Foreground/HUD" method="_on_Player_shoot"]
+[connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="hit" from="Victim" to="Foreground/HUD" method="_on_Victim_hit"]
 [connection signal="body_entered" from="Objective" to="Victim" method="_on_Objective_body_entered"]
 [connection signal="victim_spotted" from="EnemyContainer/Enemy" to="." method="_on_victim_spotted"]

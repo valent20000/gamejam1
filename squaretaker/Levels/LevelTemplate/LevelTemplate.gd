@@ -28,3 +28,11 @@ signal path_to_victim(id, path)
 func _on_victim_spotted(id, startposition, endposition) -> void:
 	var path = $Navigation2D.get_simple_path(startposition, endposition)
 	emit_signal("path_to_victim", id, path)
+
+
+func _on_Enemy_death() -> void:
+	pass # Replace with function body.
+
+
+func _on_Brute_death() -> void:
+	pass # Replace with function body.

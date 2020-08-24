@@ -67,3 +67,6 @@ func check_death():
 
 func _on_SFXDeath_finished():
 	queue_free()
+
+func _on_Player_death() -> void:
+	$Camera2D.current = true

@@ -63,6 +63,8 @@ func check_death():
 	if (lives <= 0):
 		die()	
 
+signal death
+
 func die():
 	emit_signal("death")
 	dead = true

@@ -42,4 +42,8 @@ stream = ExtResource( 4 )
 
 [node name="SFXDeath" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
 [connection signal="finished" from="SFXDeath" to="." method="_on_SFXDeath_finished"]

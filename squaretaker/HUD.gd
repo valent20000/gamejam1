@@ -42,6 +42,6 @@ func _on_Enemy_death():
 	current_number-=1
 	set_number()
 
-
 func _on_Brute_death() -> void:
-	pass # Replace with function body.
+	current_number-=1
+	set_number()
