@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://assets/new/floor1.png" type="Texture" id=1]
 [ext_resource path="res://assets/new/walls.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Enemy/Explosion.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/new/floor3.png" type="Texture" id=13]
+[ext_resource path="res://Levels/TheSplit.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Enemy/Landmine.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Levels/LevelTemplate/EngineerContainer.gd" type="Script" id=16]
 [ext_resource path="res://Enemy/Engineer.tscn" type="PackedScene" id=17]
@@ -335,7 +336,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [sub_resource type="Curve2D" id=22]
 _data = {
-"points": PoolVector2Array( 4.15605, 116.781, -4.15605, -116.781, 584.323, 911.706, 0, 0, 0, 0, 477.142, 571.045, 0, 0, 0, 0, 466.386, 392.751, 0, 0, 0, 0, 409.103, 237.975, -37.2505, 46.0396, 37.2505, -46.0396, 499.097, 163.869, 0, 0, 0, 0, 669.262, 121.381, -53.9716, -21.3129, 53.9716, 21.3129, 1033.96, 240.184, 0, 0, 0, 0, 1163.44, 351.069, -6.3496, -42.6258, 6.3496, 42.6258, 1395.06, 627.833, 74.0378, -22.7043, -74.0378, 22.7043, 996.722, 900.949, 0, 0, 0, 0, 378.796, 833.994, 0, 0, 0, 0, 121.467, 724.55 )
+"points": PoolVector2Array( 4.15605, 116.781, -4.15605, -116.781, 584.323, 911.706, 0, 0, 0, 0, 477.142, 571.045, 0, 0, 0, 0, 466.386, 392.751, 0, 0, 0, 0, 409.103, 237.975, -37.2505, 46.0396, 37.2505, -46.0396, 499.097, 163.869, 0, 0, 0, 0, 669.262, 121.381, -53.9716, -21.3129, 53.9716, 21.3129, 1033.96, 240.184, 0, 0, 0, 0, 1163.44, 351.069, -6.3496, -42.6258, 6.3496, 42.6258, 1395.06, 627.833, 74.0378, -22.7043, -74.0378, 22.7043, 996.722, 900.949, 0, 0, 0, 0, 314.216, 893.935, 0, 0, 0, 0, 125.752, 803.823, 0, 0, 0, 0, 123.504, 808.318 )
 }
 
 [node name="LevelTemplate" type="Node"]
@@ -344,6 +345,7 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 MobileObstacle = ExtResource( 6 )
+next_scene = ExtResource( 14 )
 enemy_number = 18
 
 [node name="Foreground" type="CanvasLayer" parent="."]
@@ -397,7 +399,6 @@ z_index = 4
 script = ExtResource( 8 )
 
 [node name="VictimPath" type="Path2D" parent="."]
-scale = Vector2( 0.998212, 1.10833 )
 curve = SubResource( 22 )
 
 [node name="Victim" parent="." instance=ExtResource( 4 )]
@@ -419,10 +420,10 @@ script = ExtResource( 18 )
 position = Vector2( 1359.5, 1351.1 )
 
 [node name="Landmine1" parent="EnemyContainer/EngineerContainer/Group1" instance=ExtResource( 15 )]
-position = Vector2( 331.827, 853.936 )
+position = Vector2( 326.476, 895.558 )
 
 [node name="Enemy" parent="EnemyContainer" instance=ExtResource( 9 )]
-position = Vector2( 276.596, 639.356 )
+position = Vector2( 273.46, 657.436 )
 lives = 1
 
 [node name="Enemy2" parent="EnemyContainer" instance=ExtResource( 9 )]
@@ -486,7 +487,7 @@ position = Vector2( 956.65, 898.016 )
 lives = 1
 
 [node name="Enemy17" parent="EnemyContainer" instance=ExtResource( 9 )]
-position = Vector2( 216.661, 928.288 )
+position = Vector2( 202.929, 944.883 )
 lives = 1
 
 [node name="Brute" parent="EnemyContainer" instance=ExtResource( 10 )]
@@ -498,20 +499,20 @@ position = Vector2( 1498.87, 1208.16 )
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 32 )
 autoplay = true
-[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy4" method="_on_LevelTemplate_path_to_victim"]
+[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy3" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy2" method="_on_LevelTemplate_path_to_victim"]
-[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy" method="_on_LevelTemplate_path_to_victim"]
+[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy4" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy5" method="_on_LevelTemplate_path_to_victim"]
-[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy8" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy6" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy7" method="_on_LevelTemplate_path_to_victim"]
+[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy8" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy9" method="_on_LevelTemplate_path_to_victim"]
+[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy10" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy11" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy12" method="_on_LevelTemplate_path_to_victim"]
-[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy14" method="_on_LevelTemplate_path_to_victim"]
-[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy10" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy13" method="_on_LevelTemplate_path_to_victim"]
+[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy14" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy15" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy16" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy17" method="_on_LevelTemplate_path_to_victim"]
@@ -521,7 +522,10 @@ autoplay = true
 [connection signal="hit" from="Player" to="Foreground/HUD" method="_on_Player_hit"]
 [connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="body_entered" from="Objective" to="Victim" method="_on_Objective_body_entered"]
+[connection signal="death" from="Victim" to="." method="_on_Victim_death"]
 [connection signal="hit" from="Victim" to="Foreground/HUD" method="_on_Victim_hit"]
+[connection signal="reload" from="Victim" to="." method="_on_Victim_reload"]
+[connection signal="win" from="Victim" to="." method="_on_Victim_win"]
 [connection signal="death" from="EnemyContainer/EngineerContainer/Group1/Engineer1" to="EnemyContainer/EngineerContainer/Group1/Landmine1" method="_on_owner_death"]
 [connection signal="explosion" from="EnemyContainer/EngineerContainer/Group1/Landmine1" to="EnemyContainer/EngineerContainer" method="_on_Landmine1_explosion"]
 [connection signal="death" from="EnemyContainer/Enemy" to="Foreground/HUD" method="_on_Enemy_death"]
@@ -576,10 +580,10 @@ autoplay = true
 [connection signal="shoot" from="EnemyContainer/Enemy17" to="BulletSystem" method="_on_shoot"]
 [connection signal="victim_spotted" from="EnemyContainer/Enemy17" to="." method="_on_victim_spotted"]
 [connection signal="death" from="EnemyContainer/Brute" to="Foreground/HUD" method="_on_Brute_death"]
-[connection signal="swing" from="EnemyContainer/Brute" to="Player" method="check_death"]
 [connection signal="swing" from="EnemyContainer/Brute" to="Victim" method="check_death"]
+[connection signal="swing" from="EnemyContainer/Brute" to="Player" method="check_death"]
 [connection signal="victim_spotted" from="EnemyContainer/Brute" to="." method="_on_victim_spotted"]
 [connection signal="death" from="EnemyContainer/Brute2" to="." method="_on_Brute_death"]
-[connection signal="swing" from="EnemyContainer/Brute2" to="Player" method="check_death"]
 [connection signal="swing" from="EnemyContainer/Brute2" to="Victim" method="check_death"]
+[connection signal="swing" from="EnemyContainer/Brute2" to="Player" method="check_death"]
 [connection signal="victim_spotted" from="EnemyContainer/Brute2" to="." method="_on_victim_spotted"]
