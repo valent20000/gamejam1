@@ -2,6 +2,8 @@ extends Node
 
 export (PackedScene) var MobileObstacle
 
+export (PackedScene) var next_scene
+
 var levelsize
 
 export (int) var enemy_number
@@ -29,10 +31,15 @@ func _on_victim_spotted(id, startposition, endposition) -> void:
 	var path = $Navigation2D.get_simple_path(startposition, endposition)
 	emit_signal("path_to_victim", id, path)
 
-
 func _on_Enemy_death() -> void:
 	pass # Replace with function body.
 
 
 func _on_Brute_death() -> void:
 	pass # Replace with function body.
+
+func on_Victim_reload():
+	get_tree().reload_current_scene()
+
+func _on_Victim_death():
+	$Music.stop()
