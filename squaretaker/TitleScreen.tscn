@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/faces/caretaker.png" type="Texture" id=1]
 [ext_resource path="res://assets/icons/play1.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Play.gd" type="Script" id=6]
 [ext_resource path="res://assets/ost/Music/TakeCare_TitleScreen.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/misc/truebg.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -16,14 +17,20 @@ font_data = ExtResource( 5 )
 size = 32
 font_data = ExtResource( 5 )
 
-[node name="TitleScreen" type="MarginContainer"]
+[node name="TitleScreen" type="TextureRect"]
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="MarginContainer" parent="."]
 anchor_left = -0.0015502
 anchor_top = 0.00264567
 anchor_right = 0.99845
 anchor_bottom = 1.05598
-margin_left = 6.01959
+margin_left = 4.43219
 margin_top = 2.11896
-margin_right = 6.01953
+margin_right = 4.43207
 margin_bottom = 2.11896
 custom_constants/margin_right = 120
 custom_constants/margin_top = 80
@@ -33,19 +40,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 margin_left = 120.0
 margin_top = 80.0
 margin_right = 904.0
 margin_bottom = 552.0
 
-[node name="Left" type="CenterContainer" parent="HBoxContainer"]
+[node name="Left" type="CenterContainer" parent="CenterContainer/HBoxContainer"]
 margin_right = 183.0
 margin_bottom = 472.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PlayerImg" type="TextureRect" parent="HBoxContainer/Left"]
+[node name="PlayerImg" type="TextureRect" parent="CenterContainer/HBoxContainer/Left"]
 margin_left = 43.0
 margin_top = 188.0
 margin_right = 139.0
@@ -56,7 +63,7 @@ size_flags_stretch_ratio = 3.0
 texture = ExtResource( 1 )
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
 margin_left = 187.0
 margin_right = 597.0
 margin_bottom = 472.0
@@ -64,11 +71,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 100
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 margin_right = 410.0
 margin_bottom = 159.0
 
-[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer/CenterContainer"]
+[node name="Title" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer/CenterContainer"]
 margin_right = 410.0
 margin_bottom = 159.0
 custom_fonts/font = SubResource( 1 )
@@ -76,12 +83,12 @@ text = "The
 Squaretaker"
 align = 1
 
-[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 margin_top = 259.0
 margin_right = 410.0
 margin_bottom = 291.0
 
-[node name="Play" type="TextureButton" parent="HBoxContainer/VBoxContainer/CenterContainer2"]
+[node name="Play" type="TextureButton" parent="CenterContainer/HBoxContainer/VBoxContainer/CenterContainer2"]
 margin_left = 173.0
 margin_right = 237.0
 margin_bottom = 32.0
@@ -90,12 +97,12 @@ texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 3 )
 script = ExtResource( 6 )
 
-[node name="CenterContainer3" type="CenterContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/HBoxContainer/VBoxContainer"]
 margin_top = 391.0
 margin_right = 410.0
 margin_bottom = 472.0
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/CenterContainer3"]
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer/CenterContainer3"]
 margin_left = 17.0
 margin_right = 392.0
 margin_bottom = 81.0
@@ -107,14 +114,14 @@ text = "I'll take care of you
 By taking care of them"
 align = 1
 
-[node name="Right" type="CenterContainer" parent="HBoxContainer"]
+[node name="Right" type="CenterContainer" parent="CenterContainer/HBoxContainer"]
 margin_left = 601.0
 margin_right = 784.0
 margin_bottom = 472.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VictimImg" type="TextureRect" parent="HBoxContainer/Right"]
+[node name="VictimImg" type="TextureRect" parent="CenterContainer/HBoxContainer/Right"]
 margin_left = 43.0
 margin_top = 188.0
 margin_right = 139.0
@@ -123,7 +130,7 @@ size_flags_stretch_ratio = 0.0
 texture = ExtResource( 4 )
 stretch_mode = 5
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CenterContainer"]
 stream = ExtResource( 7 )
 autoplay = true
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/CenterContainer2/Play" to="HBoxContainer/VBoxContainer/CenterContainer2/Play" method="_on_Play_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/CenterContainer2/Play" to="CenterContainer/HBoxContainer/VBoxContainer/CenterContainer2/Play" method="_on_Play_pressed"]
