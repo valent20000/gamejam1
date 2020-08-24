@@ -65,6 +65,5 @@ func check_death():
 	if (lives <= 0):
 		die()
 
-
 func _on_SFXDeath_finished():
 	queue_free()

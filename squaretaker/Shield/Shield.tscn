@@ -15,7 +15,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Shield" type="StaticBody2D"]
+[node name="Shield" type="StaticBody2D" groups=[
+"shield",
+]]
 collision_mask = 63
 script = ExtResource( 2 )
 
@@ -23,7 +25,7 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="ShieldCooldown" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 1.2
 one_shot = true
 
 [node name="ShieldDuration" type="Timer" parent="." groups=[
