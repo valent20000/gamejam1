@@ -1,15 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/icons/icon.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/icons/ammo.png" type="Texture" id=3]
 [ext_resource path="res://HUD.gd" type="Script" id=4]
 [ext_resource path="res://assets/icons/icon-victim.png" type="Texture" id=5]
 [ext_resource path="res://assets/icons/skull.png" type="Texture" id=6]
-
-
-
-
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -35,7 +30,7 @@ margin_right = 1004.0
 margin_bottom = 45.0
 
 [node name="Life" type="HBoxContainer" parent="HBoxContainer"]
-margin_right = 243.0
+margin_right = 325.0
 margin_bottom = 25.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -59,34 +54,9 @@ margin_bottom = 25.0
 texture = ExtResource( 1 )
 stretch_mode = 3
 
-[node name="Ammo" type="HBoxContainer" parent="HBoxContainer"]
-margin_left = 247.0
-margin_right = 490.0
-margin_bottom = 25.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/Ammo"]
-margin_right = 140.0
-margin_bottom = 25.0
-custom_constants/margin_left = 60
-
-[node name="Label" type="Label" parent="HBoxContainer/Ammo/MarginContainer2"]
-margin_left = 60.0
-margin_right = 140.0
-margin_bottom = 25.0
-custom_fonts/font = SubResource( 1 )
-text = "ptdr/20"
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Ammo"]
-margin_left = 144.0
-margin_right = 152.0
-margin_bottom = 25.0
-texture = ExtResource( 3 )
-
 [node name="VictimLife" type="HBoxContainer" parent="HBoxContainer"]
-margin_left = 494.0
-margin_right = 737.0
+margin_left = 329.0
+margin_right = 654.0
 margin_bottom = 25.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -111,27 +81,27 @@ texture = ExtResource( 5 )
 stretch_mode = 3
 
 [node name="RemainingKillers" type="HBoxContainer" parent="HBoxContainer"]
-margin_left = 741.0
+margin_left = 658.0
 margin_right = 984.0
 margin_bottom = 25.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer/RemainingKillers"]
-margin_right = 95.0
+margin_right = 140.0
 margin_bottom = 25.0
 custom_constants/margin_left = 60
 
 [node name="Label" type="Label" parent="HBoxContainer/RemainingKillers/MarginContainer4"]
 margin_left = 60.0
-margin_right = 95.0
+margin_right = 140.0
 margin_bottom = 25.0
 custom_fonts/font = SubResource( 1 )
-text = "x/n"
+text = "ptdr/20"
 
 [node name="TextureRect3" type="TextureRect" parent="HBoxContainer/RemainingKillers"]
-margin_left = 99.0
-margin_right = 107.0
+margin_left = 144.0
+margin_right = 152.0
 margin_bottom = 25.0
 texture = ExtResource( 6 )
 stretch_mode = 3

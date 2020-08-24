@@ -49,6 +49,7 @@ func _physics_process(delta):
 func body_entered(body):
 	if (body.is_in_group("hostile")):
 		lives -= 1
+		emit_signal("hit")
 		$SFXHit.play()
 	check_death()
 
