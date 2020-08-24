@@ -77,7 +77,9 @@ func move_along_path(distance):
 signal swing
 
 func _on_Hurtbox_body_entered(body: Node) -> void:
+	print("hurtbox")
 	if (body.is_in_group("good")):
+		print("hurt")
 		body.lives -= 2
 		emit_signal("swing")
 		moving = false

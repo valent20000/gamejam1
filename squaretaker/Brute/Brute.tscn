@@ -60,7 +60,6 @@ position = Vector2( 0.500008, -2.4541 )
 shape = SubResource( 5 )
 
 [node name="HitCooldown" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 [connection signal="body_entered" from="FOV" to="." method="_on_FOV_body_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]

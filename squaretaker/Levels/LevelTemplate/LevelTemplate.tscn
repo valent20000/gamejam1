@@ -31,8 +31,6 @@
 [ext_resource path="res://assets/new/wall2.png" type="Texture" id=29]
 [ext_resource path="res://assets/new/wall3.png" type="Texture" id=30]
 [ext_resource path="res://assets/new/wall4.png" type="Texture" id=31]
-[ext_resource path="res://assets/ost/Music/TakeCare_Levelbgm.wav" type="AudioStream" id=32]
-
 [ext_resource path="res://Brute/Brute.tscn" type="PackedScene" id=32]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -42,7 +40,15 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 vertices = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
-[sub_resource type="NavigationPolygon" id=8]
+[sub_resource type="NavigationPolygon" id=3]
+vertices = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="NavigationPolygon" id=4]
+vertices = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
+[sub_resource type="NavigationPolygon" id=5]
 vertices = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
@@ -54,23 +60,15 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 vertices = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
+[sub_resource type="NavigationPolygon" id=8]
+vertices = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+
 [sub_resource type="NavigationPolygon" id=9]
 vertices = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
-[sub_resource type="NavigationPolygon" id=10]
-vertices = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=11]
-vertices = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="NavigationPolygon" id=12]
-vertices = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="TileSet" id=3]
+[sub_resource type="TileSet" id=10]
 0/name = "wall.png 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
@@ -171,7 +169,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 6/tile_mode = 0
 6/occluder_offset = Vector2( 0, 0 )
 6/navigation_offset = Vector2( 0, 0 )
-6/navigation = SubResource( 9 )
+6/navigation = SubResource( 6 )
 6/shape_offset = Vector2( 0, 0 )
 6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 6/shape_one_way = false
@@ -186,7 +184,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 7/tile_mode = 0
 7/occluder_offset = Vector2( 0, 0 )
 7/navigation_offset = Vector2( 0, 0 )
-7/navigation = SubResource( 10 )
+7/navigation = SubResource( 7 )
 7/shape_offset = Vector2( 0, 0 )
 7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 7/shape_one_way = false
@@ -201,7 +199,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 8/tile_mode = 0
 8/occluder_offset = Vector2( 0, 0 )
 8/navigation_offset = Vector2( 0, 0 )
-8/navigation = SubResource( 11 )
+8/navigation = SubResource( 8 )
 8/shape_offset = Vector2( 0, 0 )
 8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 8/shape_one_way = false
@@ -216,7 +214,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 9/tile_mode = 0
 9/occluder_offset = Vector2( 0, 0 )
 9/navigation_offset = Vector2( 0, 0 )
-9/navigation = SubResource( 12 )
+9/navigation = SubResource( 9 )
 9/shape_offset = Vector2( 0, 0 )
 9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 9/shape_one_way = false
@@ -231,7 +229,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 10/tile_mode = 0
 10/occluder_offset = Vector2( 0, 0 )
 10/navigation_offset = Vector2( 0, 0 )
-10/navigation = SubResource( 8 )
+10/navigation = SubResource( 3 )
 10/shape_offset = Vector2( 0, 0 )
 10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 10/shape_one_way = false
@@ -246,7 +244,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 11/tile_mode = 0
 11/occluder_offset = Vector2( 0, 0 )
 11/navigation_offset = Vector2( 0, 0 )
-11/navigation = SubResource( 6 )
+11/navigation = SubResource( 4 )
 11/shape_offset = Vector2( 0, 0 )
 11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 11/shape_one_way = false
@@ -261,7 +259,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 12/tile_mode = 0
 12/occluder_offset = Vector2( 0, 0 )
 12/navigation_offset = Vector2( 0, 0 )
-12/navigation = SubResource( 7 )
+12/navigation = SubResource( 5 )
 12/shape_offset = Vector2( 0, 0 )
 12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 12/shape_one_way = false
@@ -325,12 +323,12 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 16/shapes = [  ]
 16/z_index = 0
 
-[sub_resource type="Curve2D" id=4]
+[sub_resource type="Curve2D" id=11]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 556.45, 1112.71, 0, 0, 0, 0, 526.911, 3.60531 )
 }
 
-[sub_resource type="Curve2D" id=5]
+[sub_resource type="Curve2D" id=12]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 805.362, 465.471, 0, 0, 0, 0, 702.909, 593.76, 0, 0, 0, 0, 531.856, 596.433, 0, 0, 0, 0, 413.367, 493.089, 0, 0, 0, 0, 475.73, 387.963, 0, 0, 0, 0, 630.746, 334.509, 0, 0, 0, 0, 805.362, 465.471 )
 }
@@ -360,7 +358,7 @@ __meta__ = {
 
 [node name="TileMap" type="TileMap" parent="Navigation2D"]
 position = Vector2( 1, 0 )
-tile_set = SubResource( 3 )
+tile_set = SubResource( 10 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 32
 collision_mask = 63
@@ -382,7 +380,7 @@ z_index = 4
 script = ExtResource( 8 )
 
 [node name="VictimPath" type="Path2D" parent="."]
-curve = SubResource( 4 )
+curve = SubResource( 11 )
 
 [node name="Victim" parent="." instance=ExtResource( 4 )]
 position = Vector2( 565.972, 1185.34 )
@@ -416,7 +414,7 @@ position = Vector2( 546.971, 785.009 )
 [node name="CiviliansContainer" type="Node2D" parent="."]
 
 [node name="CivilianPath" type="Path2D" parent="CiviliansContainer"]
-curve = SubResource( 5 )
+curve = SubResource( 12 )
 
 [node name="Civilian" parent="CiviliansContainer" instance=ExtResource( 12 )]
 position = Vector2( 677.795, 458.996 )
@@ -436,19 +434,17 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StoryEvents/1"]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 32 )
 autoplay = true
-
-[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Brute" method="_on_LevelTemplate_path_to_victim"]
+[connection signal="path_to_victim" from="." to="EnemyContainer/Enemy" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="path_to_victim" from="." to="EnemyContainer/Enemy2" method="_on_LevelTemplate_path_to_victim"]
 [connection signal="hit" from="Player" to="Foreground/HUD" method="_on_Player_hit"]
 [connection signal="reload" from="Player" to="Foreground/HUD" method="_on_Player_reload"]
-[connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="shoot" from="Player" to="Foreground/HUD" method="_on_Player_shoot"]
+[connection signal="shoot" from="Player" to="BulletSystem" method="_on_shoot"]
 [connection signal="body_entered" from="Objective" to="Victim" method="_on_Objective_body_entered"]
 [connection signal="hit" from="Victim" to="Foreground/HUD" method="_on_Victim_hit"]
-[connection signal="swing" from="EnemyContainer/Brute" to="Victim" method="_on_Brute_swing"]
+[connection signal="swing" from="EnemyContainer/Brute" to="Player" method="check_death"]
 [connection signal="swing" from="EnemyContainer/Brute" to="Victim" method="check_death"]
 [connection signal="victim_spotted" from="EnemyContainer/Brute" to="." method="_on_victim_spotted"]
 [connection signal="death" from="EnemyContainer/Enemy" to="Foreground/HUD" method="_on_Enemy_death"]

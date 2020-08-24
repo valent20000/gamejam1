@@ -7,6 +7,7 @@
 extents = Vector2( 40.1729, 2.53711 )
 
 [node name="Shield" type="StaticBody2D"]
+collision_mask = 63
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -22,7 +23,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="ShieldDuration" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 100.0
 one_shot = true
 [connection signal="timeout" from="ShieldCooldown" to="." method="_on_ShieldCooldown_timeout"]
 [connection signal="timeout" from="ShieldDuration" to="." method="_on_ShieldDuration_timeout"]
