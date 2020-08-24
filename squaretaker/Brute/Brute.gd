@@ -40,10 +40,7 @@ func _process(delta):
 		emit_signal("victim_spotted", id, position, target.position)
 		var move_distance = speed * delta
 		move_along_path(move_distance)
-	print($Hurtbox.get_overlapping_bodies().has(target))
-	print(fighting_fit)
 	if (fighting_fit && $Hurtbox.get_overlapping_bodies().has(target)):
-		print("cool")
 		swing(target)
 
 func _on_Hitbox_body_entered(body: Node) -> void:
@@ -92,13 +89,10 @@ func move_along_path(distance):
 signal swing
 
 func _on_Hurtbox_body_entered(body: Node) -> void:
-	print("hurtbox")
-	print(body.get_groups())
 	swing(body)
 
 func swing(body):
 	if (body.is_in_group("good") && fighting_fit):
-		print("hurt")
 		body.lives -= damage
 		emit_signal("swing")
 		moving = false
@@ -106,7 +100,6 @@ func swing(body):
 		$HitCooldown.start()
 
 func _on_HitCooldown_timeout() -> void:
-	print("timeout")
 	moving = true
 	fighting_fit = true
 
