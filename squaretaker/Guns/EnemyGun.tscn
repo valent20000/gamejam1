@@ -32,11 +32,10 @@ position = Vector2( 0, -8 )
 frames = SubResource( 1 )
 
 [node name="Reload" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 
 [node name="TimeBetweenShoot" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 
 [node name="SFXPlayer" parent="." instance=ExtResource( 5 )]
